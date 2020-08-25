@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="row no-gutters">
+        <div class="col-60 col-md-35 order-2-mobile">
+            <div class="text-container text-left">
+            <h1 class="section-title">{{section.settings.title }}</h1>
+            {{ section.settings.text }}
+        </div>
+        <div class="featured-points d-flex">
+            {% for block in section.blocks %}
+            <div class="point text-center">
+                <div class="item">
+                    {% if block.settings.image != blank %}
+                        <img src="{{ block.settings.image | img_url: '200x' }}">
+                    {% endif %}
+                </div>
+                {% if block.settings.step != blank %}
+                    <p>{{ block.settings.step }}</p>
+                {% endif %}
+            </div>
+            {% if forloop.index == 4 %}
+            </div>
+            <div class="featured-points d-flex margin-items">
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% if section.settings.button_url != blank and section.settings.button_text != blank %}
+        <div class="find-button">
+            <a class="find-program" href="{{section.settings.button_url}}">{{ section.settings.button_text }}</a>
+        </div>
+    {% endif %}
+        </div>
+        <div class="col-60 shape--container col-md-25">
+            {% if section.settings.drop_image != blank %}
+            <img class="drop-image" src="{{ section.settings.drop_image | img_url: '300x' }}">
+            {% endif %}
+            {% if section.settings.bg_image != blank %}
+                <img class="shape--bg-image-right" src="{{ section.settings.bg_image | img_url: '500x' }}">
+            {% endif %}
+            <div class="image-container">
+                {% if section.settings.image != blank %}
+                    <img class="image-fluid gym" src="{{ section.settings.image | img_url: '500x' }}">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Text with image Right",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "drop_image",
+        "label": "Drop Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+    },
+    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Url"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "training_step",
+    "name": "Training Step",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Step Image"
+      },
+    {
+        "type": "text",
+        "id": "step",
+        "label": "Step"
+    }
+    ]
+  }
+],
+  "presets": [
+    {
+      "name": "Text with image Right",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

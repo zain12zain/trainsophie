@@ -1,0 +1,202 @@
+<div class="banner-img">
+    <div class="row no-gutters align--center">
+        {% if section.settings.image != blank %}
+        <div class="col-60 col-lg-55 main-banner">
+        <!-- <img src="{{ section.settings.image | img_url: '2000x' }}" class="banner-img">
+        <div class="main-banner-text-container">
+            <h1 class="main-banner-text">
+                {{ section.settings.title }}
+            </h1>
+            {% if section.settings.button_text != blank and section.settings.button_text != blank %}
+            <a class="find-program" href="{{ section.settings.link }}">
+                {{ section.settings.button_text }}
+            </a>
+            {% endif %}
+        </div> -->
+
+          <section class="main-slider">
+            <div class="item youtube">
+              <iframe class="embed-player slide-media" width="980" height="520" src="https://www.youtube.com/embed/{{section.settings.video_id}}?enablejsapi=1&controls=0&fs=0&iv_load_policy=3&rel=0&showinfo=0&loop=1&playlist={{section.settings.video_id}}&start=1" frameborder="0" allowfullscreen></iframe> 
+              <!-- <p class="caption">YouTube</p> -->
+              <div class="main-banner-text-container">
+                <h1 class="main-banner-text">
+                    {{ section.settings.title }}
+                </h1>
+                {% if section.settings.button_text != blank and section.settings.button_text != blank %}
+                <a class="find-program" href="{{ section.settings.link }}">
+                    {{ section.settings.button_text }}
+                </a>
+                {% endif %}
+            </div>
+            </div>
+          </section>
+        </div>
+        {% endif %}
+        {% if section.settings.featured_text != blank %}
+        <div class="body-right">
+            <span class="right-txt">{{ section.settings.featured_text }}</span>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<style>
+  .main-slider .slick-slide, .slick-slide::before, .caption {
+     -webkit-backface-visibility: hidden;
+     backface-visibility: hidden;
+  }
+   .main-slider {
+     position: relative;
+     width: 100%;
+     /* height: 38vw; */
+     min-height: 8vw;
+     margin-bottom: 50px;
+     opacity: 0;
+     visibility: hidden;
+     transition: all 1.2s ease;
+  }
+   .main-slider.slick-initialized {
+     opacity: 1;
+     visibility: visible;
+  }
+  .main-slider .slick-slide {
+     position: relative;
+     height: 38vw !important;
+  }
+  @media screen and ( max-width:768px ){
+      .main-slider .slick-slide {
+     height: auto !important;
+  }
+  }
+  .main-slider .slick-slide iframe {
+     position: relative;
+     pointer-events: none;
+  }
+  .main-slider .slick-slide figure {
+     position: relative;
+     height: 100%;
+  }
+  
+   .main-slider .slick-slide .slide-media {
+     animation: slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+  }
+   .main-slider .slick-slide.slick-active {
+     z-index: 1;
+  }
+   .main-slider .slick-slide.slick-active .slide-media {
+     animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+  }
+   .main-slider .slick-slide.slick-active .caption {
+     opacity: 1;
+     transform: translateY(0);
+     transition: all 0.7s cubic-bezier(0.32, 0.34, 0, 1.62) 0.6s;
+  }
+   .caption {
+     position: absolute;
+     top: 44%;
+     left: 5%;
+     text-align: center;
+     padding: 20px;
+     border: 3px solid;
+     color: #fff;
+     margin: 0;
+     font-size: 40px;
+     font-weight: bold;
+     letter-spacing: 0.02em;
+     opacity: 0;
+     z-index: 1;
+     transition: all 0.3s ease;
+     transform: translateY(100px);
+  }
+   .main-slider .slick-dots {
+       display: none !important;
+     text-align: center;
+     padding-top: 15px;
+  }
+   .main-slider .slick-dots li {
+     display: inline-block;
+     vertical-align: top;
+       margin: 0 8px;
+       display: none !important;
+  }
+   .main-slider .slick-dots li button {
+       display: none;
+  }
+   @keyframes slideIn {
+     from {
+       filter: blur(15px);
+    }
+     to {
+       filter: blur(0);
+    }
+  }
+   @keyframes slideOut {
+     from {
+       filter: blur(0);
+    }
+     to {
+       filter: blur(15px);
+    }
+  }
+    </style>
+<script>
+  jQuery(document).ready(function(){
+    setWrapWidth();
+  })
+  jQuery(window).resize(function(){
+    setWrapWidth();
+  })
+  function setWrapWidth(){
+    setTimeout(function(){
+      var topoff = jQuery('.slick-active .slider-content').offset().top;
+      var leftoff = jQuery('.slick-active .slider-content').offset().left;
+      var cont_width = jQuery('.slick-active .slider-content').outerWidth();
+      var winwid = jQuery(window).innerWidth();
+      var leftoffs = leftoff + cont_width;
+      var newoffs = winwid - leftoffs;
+      jQuery('.body-right').width(newoffs).height(topoff);
+    },500);
+  }
+</script>
+{% schema %}
+{
+  "name": "Main Banner",
+  "settings": [
+  {
+    "type": "image_picker",
+    "id": "image",
+    "label": "Image"
+    },
+    {
+        "type": "text",
+        "id": "video_id",
+        "label": "Video ID"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+  {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+  },
+  {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+  },
+    {
+        "type": "text",
+        "id": "featured_text",
+        "label": "Featured Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Banner",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

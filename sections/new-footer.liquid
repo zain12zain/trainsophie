@@ -1,0 +1,429 @@
+    <div class="footer-new">
+        <div class="container">
+            <div class="row">
+                <div class="col-60 col-md-37 border-right pt-7 footer-links order-2-mobile">
+                    <div class="row">
+                        <div class="col-60">
+                            <div class="text-list">
+                                <h1>{{ section.settings.menu_title }}</h1>
+                        </div>
+                    </div>
+                <div class="col-60 col-md-20">
+                    {%- assign footer_linklist = section.settings.link_list_1 -%}
+                    <ul class="coaching-courses">
+                      {%- for link in linklists[footer_linklist].links -%}
+                        <li>
+                          <a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
+                            {{ link.title | escape }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+            </div>
+                <div class="col-60 col-md-20">
+                    {%- assign footer_linklist = section.settings.link_list_2 -%}
+                    <ul class="coaching-courses">
+                      {%- for link in linklists[footer_linklist].links -%}
+                        <li>
+                          <a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
+                            {{ link.title | escape }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                </div>
+            </div>
+        </div>
+                <div class="col-60 col-md-23 pt-7 newsletter-pading-desktop">
+                    {% if section.settings.Newsletter_title != blank %}
+                    <div class="text-list">
+                        <h1>{{ section.settings.Newsletter_title }}</h1>
+                    </div>
+                    {% endif %}
+                <div class="d-flex">
+                    {%- assign formId = 'Contact_' | append: section.id -%}
+                    {% form 'customer', id: formId, novalidate: 'novalidate', class: '' %}
+                      {%- if form.posted_successfully? -%}
+                        <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                          {{ 'general.newsletter_form.confirmation' | t }}
+                        </p>
+                      {%- endif -%}
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+                      <div class="input-group {% if form.errors %} input-group--error{% endif %}">
+                        <input type="email"
+                          name="contact[email]"
+                          id="{{ formId }}-email"
+                          class="subscription-input {% if form.errors %} input--error{% endif %}"
+                          value="{{ form.email }}"
+                          placeholder="Email Address"
+                          aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                          aria-required="true"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          {% if form.errors %}
+                            aria-invalid="true"
+                            aria-describedby="{{ formId }}-email-error"
+                            data-form-status
+                          {% endif %}
+                          >
+                          <button type="submit" class="subscription-button" name="commit">{{ section.settings.newsletter_submit }}</button>
+                      </div>
+                      {%- if form.errors contains 'email' -%}
+                        <span id="{{ formId }}-email-error" class="input-error-message">
+                          <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                          {% include 'icon-error' %}
+                          <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                        </span>
+                      {%- endif -%}
+                    {% endform %}
+                    </div>
+                        <div class="icons-list">
+                            <span>
+                                {% if section.settings.facebook_link != blank %}
+                                <a href="{{ section.settings.facebook_link }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                {% endif %}
+                                {% if section.settings.insta_link != blank %}
+                                <a href="{{ section.settings.insta_link }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                {% endif %}
+                                {% if section.settings.youtube_link != blank %}
+                                <a href="{{ section.settings.youtube_link }}"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                {% endif %}
+                            </span>
+                            {% if section.settings.email != blank %}
+                            <a class="footer-email--link" href="mailto:{{section.settings.email}}">
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                {{ section.settings.email }}
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="footer-bottom border-top">
+                <div class="container">
+                    <div class="row no-gutters">
+                        <div class="col-60 col-md-30">
+                            <div class="shipping-policy">
+                                {%- assign footer_linklist = section.settings.link_list_3 -%}
+                                <ul>
+                                  {%- for link in linklists[footer_linklist].links -%}
+                                    <li>
+                                      <a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
+                                        {{ link.title | escape }}
+                                      </a>
+                                    </li>
+                                  {%- endfor -%}
+                                </ul>
+                            </div>
+                        </div>
+                <div class="col-60 col-md-30 text-right">
+                    {% if section.settings.copyright_text != blank %}
+                    <div class="copyright__text text-right">
+                        <p>{{ section.settings.copyright_text }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+<script>
+jQuery(document).ready(function(){
+jQuery('.rotatingslides').slick({
+    dots:false,
+    arrows:false
+});
+jQuery('.rotatingslides .arrow-left').click(function(){
+    jQuery('.rotatingslides').slick('slickPrev');
+})
+jQuery('.rotatingslides .arrow-right').click(function(){
+    jQuery('.rotatingslides').slick('slickNext');
+})
+})
+</script>
+<script>
+$('.slick-img').slick({
+dots: true,
+infinite: false,
+speed: 300,
+slidesToShow: 4,
+arrows: true,
+slidesToScroll: 4,
+prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fas fa-angle-left'></i></button>",
+nextArrow:"<button type='button' class='slick-next pull-right'><i class='fas fa-angle-right'></i></i></button>",
+responsive: [
+{
+  breakpoint: 1024,
+  settings: {
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    infinite: true,
+    dots: true
+  }
+},
+{
+  breakpoint: 600,
+  settings: {
+    slidesToShow: 2,
+    slidesToScroll: 2
+  }
+},
+{
+  breakpoint: 480,
+  settings: {
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
+}
+]
+});
+</script>
+<script>
+    $('.shape-slider').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fas fa-angle-left'></i></button>",
+nextArrow:"<button type='button' class='slick-next pull-right'><i class='fas fa-angle-right'></i></i></button>",
+  responsive: [
+    {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+</script>
+<script>
+  var slideWrapper = $(".main-slider"),
+iframes = slideWrapper.find('.embed-player'),
+lazyImages = slideWrapper.find('.slide-image'),
+lazyCounter = 0;
+
+// POST commands to YouTube or Vimeo API
+function postMessageToPlayer(player, command){
+if (player == null || command == null) return;
+player.contentWindow.postMessage(JSON.stringify(command), "*");
+}
+
+// When the slide is changing
+function playPauseVideo(slick, control){
+var currentSlide, slideType, startTime, player, video;
+
+currentSlide = slick.find(".slick-current");
+slideType = currentSlide.attr("class").split(" ")[1];
+player = currentSlide.find("iframe").get(0);
+startTime = currentSlide.data("video-start");
+
+if (slideType === "vimeo") {
+switch (control) {
+  case "play":
+    if ((startTime != null && startTime > 0 ) && !currentSlide.hasClass('started')) {
+      currentSlide.addClass('started');
+      postMessageToPlayer(player, {
+        "method": "setCurrentTime",
+        "value" : startTime
+      });
+    }
+    postMessageToPlayer(player, {
+      "method": "play",
+      "value" : 1
+    });
+    break;
+  case "pause":
+    postMessageToPlayer(player, {
+      "method": "pause",
+      "value": 1
+    });
+    break;
+}
+}
+else if (slideType === "youtube") {
+switch (control) {
+  case "play":
+    postMessageToPlayer(player, {
+      "event": "command",
+      "func": "mute"
+    });
+    postMessageToPlayer(player, {
+      "event": "command",
+      "func": "playVideo"
+    });
+    break;
+  case "pause":
+    postMessageToPlayer(player, {
+      "event": "command",
+      "func": "pauseVideo"
+    });
+    break;
+}
+}
+}
+
+// Resize player
+function resizePlayer(iframes, ratio) {
+if (!iframes[0]) return;
+var win = $(".main-slider"),
+  width = win.width(),
+  playerWidth,
+  height = win.height(),
+  playerHeight,
+  ratio = ratio || 16/9;
+
+iframes.each(function(){
+var current = $(this);
+if (width / ratio < height) {
+  playerWidth = Math.ceil(height * ratio);
+  current.width(playerWidth).height(height).css({
+    left: (width - playerWidth) / 2,
+     top: 0
+    });
+} else {
+  playerHeight = Math.ceil(width / ratio);
+  current.width(width).height(playerHeight).css({
+    left: 0,
+    top: (height - playerHeight) / 2
+  });
+}
+});
+}
+
+// DOM Ready
+$(function() {
+// Initialize
+slideWrapper.on("init", function(slick){
+slick = $(slick.currentTarget);
+setTimeout(function(){
+  playPauseVideo(slick,"play");
+}, 1000);
+resizePlayer(iframes, 16/9);
+});
+slideWrapper.on("beforeChange", function(event, slick) {
+slick = $(slick.$slider);
+playPauseVideo(slick,"pause");
+});
+slideWrapper.on("afterChange", function(event, slick) {
+slick = $(slick.$slider);
+playPauseVideo(slick,"play");
+});
+slideWrapper.on("lazyLoaded", function(event, slick, image, imageSource) {
+lazyCounter++;
+if (lazyCounter === lazyImages.length){
+  lazyImages.addClass('show');
+  // slideWrapper.slick("slickPlay");
+}
+});
+
+//start the slider
+slideWrapper.slick({
+// fade:true,
+autoplaySpeed:4000,
+lazyLoad:"progressive",
+speed:600,
+arrows:false,
+dots:true,
+cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
+});
+});
+
+// Resize event
+$(window).on("resize.slickVideoPlayer", function(){  
+resizePlayer(iframes, 16/9);
+});
+</script>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+        "type": "text",
+        "id": "Newsletter_title",
+        "label": "Newsletter Title"
+    },
+    {
+        "type": "text",
+        "id": "newsletter_submit",
+        "label": "Newsletter Submit Button Text"
+    },
+    {
+        "type": "header",
+        "content": "Socials"
+    },
+    {
+        "type": "text",
+        "id": "facebook_link",
+        "label": "Facebook link"
+    },
+    {
+        "type": "text",
+        "id": "insta_link",
+        "label": "Instagram link"
+    },
+    {
+        "type": "text",
+        "id": "youtube_link",
+        "label": "Youtube link"
+    },
+    {
+        "type": "text",
+        "id": "email",
+        "label": "Email"
+    },
+    {
+        "type": "text",
+        "id": "menu_title",
+        "label": "Menu Title"
+    },
+    {
+        "type": "link_list",
+        "id": "link_list_1",
+        "label": "Footer Menu 1"
+    },
+    {
+        "type": "link_list",
+        "id": "link_list_2",
+        "label": "Footer Menu 2"
+    },
+    {
+        "type": "header",
+        "content": "Footer Botom"
+    },
+    {
+        "type": "link_list",
+        "id": "link_list_3",
+        "label": "Footer Bottom Menu"
+    },
+    {
+        "type": "text",
+        "id": "copyright_text",
+        "label": "Copyright Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,72 @@
+<div class="container main-2">
+    <div class="slider-contnet rotatingslides">
+        {% for block in section.blocks %}
+        <div class="content-slide">
+            <div class="row no-gutters">
+                <div class="col-60 col-md-20 slideimg">
+                    {% if block.settings.image != blank %}
+                    <img src="{{ block.settings.image | img_url: '1000x' }}" alt="slide text">
+                    {% endif %}
+                </div>
+                <div class="col-60 col-md-30 text-section">
+                    <div class="slider-content">
+                        <h2>{{ block.settings.title }}</h2>
+                        <h4>{{ block.settings.sub_title }}</h4>
+                        {{ block.settings.text }}
+                        <div class="arrows">
+                            <a href="#" class="arrow arrow-left"><i class="fas fa-long-arrow-alt-left"></i></a>
+                            <a href="#" class="arrow arrow-right"><i class="fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Models Section",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "model",
+      "name": "Model",
+      "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        },
+      {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+      },
+      {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title"
+      },
+      {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+      },
+      {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+      }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Models Section",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row mt-5 shape--container no-gutters">
+        {% if section.settings.bg_image != blank %}
+        <img class="shape--bg-image" src="{{ section.settings.bg_image | img_url: '500x' }}">
+        {% endif %}
+        <div class="col-60 col-md-25">
+            <div class="image-container">
+                {% if section.settings.image != blank %}
+                    <img class="image-fluid gym" src="{{ section.settings.image | img_url: '500x' }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-60 col-md-35 mt-5-pt-4">
+            <h1 class="section-title">{{section.settings.title }}</h1>
+            {{ section.settings.text }}
+            {% if section.settings.button_url != blank and section.settings.button_text != blank %}
+                <div class="find-button">
+                    <a class="find-program" href="{{section.settings.button_url}}">{{ section.settings.button_text }}</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Text with image Left",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+    },
+    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with image Left",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

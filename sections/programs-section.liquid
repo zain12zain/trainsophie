@@ -1,0 +1,108 @@
+<div class="program-section">
+    <div class="row no-gutters">
+        <div class="text-section">
+            <div class="text-inner">
+                {% if section.settings.title != blank %}
+                <h1 class="section-title-2">
+                    {{ section.settings.title }}
+                </h1>
+                {% endif %}
+                {% if section.settings.text != blank %}
+                <p>{{ section.settings.text }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="shape-slider-container">
+            <div class="shape-slider">
+                {% for block in section.blocks %}
+                <div class="shape-slide">
+                    <div class="shape-cont">
+                        {% if block.settings.image != blank %}
+                            {% if block.settings.link != blank %}
+                                <a href="{{block.settings.link}}">
+                                {% endif %}
+                                    <img src="{{ block.settings.image | img_url: '1000x' }}">
+                                {% if block.settings.link != blank %}
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                        <h3>{{ block.settings.title }}</h3>
+                        <span class="weeks">
+                            {{ block.settings.weeks }}
+                        </span>
+                        <span class="shape-price">
+                            {{ block.settings.price }}
+                        </span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.program-section .text-section{
+    background-color: {{section.settings.bg_color}};
+}
+</style>
+{% schema %}
+{
+  "name": "Programs Section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+    },
+    {
+        "type": "text",
+        "id": "text",
+        "label": "Text"
+    },
+    {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "shapes",
+      "name": "Shapes",
+      "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        },
+      {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+      },
+      {
+          "type": "text",
+          "id": "weeks",
+          "label": "Weeks"
+      },
+      {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+      },
+      {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+      }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Programs Section",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
