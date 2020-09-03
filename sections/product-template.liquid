@@ -1,4 +1,4 @@
-<div class="product-template__container page-width"
+<div class="product-template__container container"
   id="ProductSection-{{ section.id }}"
   data-section-id="{{ section.id }}"
   data-section-type="product"
@@ -36,7 +36,7 @@
   {% endcase %}
 
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
-    <div class="grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
+    <div class="grid__item product-single__media-group medium-up--seven-tenths {% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
       {%- for media in product.media -%}
@@ -119,7 +119,7 @@
       {% endif %}
     </div>
 
-    <div class="grid__item {{ product_description_width }}">
+    <div class="grid__item medium-up--three-tenths">
       <div class="product-single__meta">
 
         <h1 class="product-single__title">{{ product.title }}</h1>
@@ -138,7 +138,9 @@
               {%- endif -%}
             </div>
           {%- endif -%}
-
+          <div class="product-description">
+            {{ product.description }}
+           </div>
           {% capture "form_classes" -%}
             product-form product-form-{{ section.id }}
             {%- unless section.settings.show_variant_labels %} product-form--hide-variant-labels {% endunless %}
@@ -163,6 +165,7 @@
                       {% endfor %}
                     </select>
                   </div>
+                  {% include 'swatch' with option.name %}
                 {% endfor %}
               </div>
             {% endunless %}
@@ -227,7 +230,26 @@
             </div>
           {% endform %}
         </div>
-
+        <div class="product--accordians">
+          <div class="accordian">
+             <span class="accordian-heading active">Description</span>
+             <div class="accordian-body">
+              {{ product.description }}
+             </div>
+          </div>
+          <div class="accordian">
+             <span class="accordian-heading">Delievry and Returns</span>
+             <div class="accordian-body" style="display: none;">
+              {{ product.description }}
+             </div>
+          </div>
+          <div class="accordian">
+             <span class="accordian-heading">Reviews</span>
+             <div class="accordian-body" style="display: none;">
+              Reviews
+             </div>
+          </div>
+        </div>
         {%- comment -%}
           Live region for announcing updated price and availability to screen readers
         {%- endcomment -%}
@@ -246,9 +268,9 @@
           aria-hidden="true"
         >{{ 'products.product.loader_label' | t }}</p>
 
-        <div class="product-single__description rte">
+        <!-- <div class="product-single__description rte">
           {{ product.description }}
-        </div>
+        </div> -->
 
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
@@ -265,7 +287,24 @@
     {{ product.media | where: 'media_type', 'model' | json }}
   </script>
 {% endunless %}
-
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+  <script>
+    jQuery(function() {
+    jQuery('.swatch :radio').change(function() {
+      var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+      var optionValue = jQuery(this).val();
+      jQuery(this)
+        .closest('form')
+        .find('.single-option-selector')
+        .eq(optionIndex)
+        .val(optionValue)
+        .trigger('change');
+    });
+    setTimeout(function(){
+      jQuery('#productBoughtTogether').insertBefore('#judgeme_product_reviews');
+    },2000)
+  });
+</script>
 
 
 {% schema %}

@@ -1,0 +1,76 @@
+<div class="about-template">
+    <div class="row no-gutters">
+        <div class="col-60 about-banner text-center">
+            <h2 class="page-heading">
+                {{ page.title }}
+            </h2>
+            {% if section.settings.bg_image_1 != blank %}
+                <div class="about-1-container">
+                    <img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="about-prallax-1 img-parallax">
+                </div>
+            {% endif %}
+            {% if section.settings.bg_image_2 != blank %}
+                <div class="about-2-container">
+                    <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="about-prallax-2 img-parallax">
+                </div>
+            {% endif %}
+            {% if section.settings.bg_image_3 != blank %}
+                <div class="about-3-container">
+                    <img src="{{ section.settings.bg_image_3 | img_url: '400x' }}" data-speed="2" class="about-prallax-2 img-parallax">
+                </div>
+            {% endif %}
+            <img class="about-image1" src="{{ 'Soph_01.png' | asset_url }}">
+        </div>
+        <div class="banner-text">
+            <h2 class="page-heading">
+                HI, I’M SOPH
+            </h2>
+            <p>I can’t think of a way to write this without sounding lame.. but hear me out!</p>
+            <p>a coach, my philosophy for living a healthy life comprises of three key things: Training, Nutrition & Mindset.</p>
+            <p>This is how I live my life - I train hard, I eat to fuel my sessions (yes this involves chocolate) and I work equally as hard to train my mind.</p>
+            <p>I wasn’t always fit, strong and active. I gained a serious amount of weight in 2014 and want you to know that there’s nothing that makes me special - anyone and everyone can achieve an amazing physique. You just need the right tools - and I’ve got you covered with your training and nutrition programs, mindset coaching and more in my TWS Coaching Platform.</p>
+            <a class="find-program about-button" href="#">
+                <span> your program</span></a>
+        </div>
+    </div>
+    <div class="about-bottom">
+        <div class="container">
+            <div class="row align--center no-gutters">
+                <div class="col-60 col-md-30">
+                    <div class="begin--container">
+                    <h2 class="page-heading">
+                        HOW DID I BEGIN?
+                    </h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem metus, tempor at sollicitudin ut, pretium quis erat. Curabitur sed vulputate lectus, ac faucibus ante. Ut aliquam lacinia est sed pharetra. Maecenas dignissim justo et turpis eleifend, ut placerat tellus aliquam. Quisque eu imperdiet lorem. Quisque ac viverra lectus, eget dapibus nulla. Duis posuere nulla tortor, eget gravida ex finibus eu. Ut pharetra ac nisl id gravida.</p>
+                    <p>Integer commodo lectus nec ligula condimentum ultrices. Cras feugiat nunc ac efficitur tincidunt. Aliquam ex ex, viverra vitae varius ut, interdum ut massa. Donec eu tincidunt eros. Etiam laoreet sodales felis, sit amet aliquet velit commodo nec. Quisque imperdiet, leo vitae gravida interdum, tellus mauris vehicula urna, et eleifend dolor nibh a sapien.</p>
+                </div>
+                </div>
+                <div class="col-60 col-md-30 ">
+                    <img src="{{ 'Soph_02.png' | asset_url }}">
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "About Me",
+  "settings": [
+  {
+    "type": "image_picker",
+    "id": "bg_image_1",
+    "label": "Background Image 1"
+  },
+  {
+    "type": "image_picker",
+    "id": "bg_image_2",
+    "label": "Background Image 2"
+  },
+  {
+    "type": "image_picker",
+    "id": "bg_image_3",
+    "label": "Background Image 3"
+  }
+  ]
+}
+{% endschema %}

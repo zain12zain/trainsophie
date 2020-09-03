@@ -1,0 +1,339 @@
+<section class="cut-tone-banner">
+    <div class="row no-gutters">
+        <div class="col-md-60 tone-img-block">
+            <img src="{{ 'Soph-2x.png' | asset_url }}" class="img-fluid" alt="banner-img">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-60 d-flex list-holder">
+                <ul class="list-unstyled">
+                    <h2 class="page-heading">CUT & TONE</h2>
+                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Choose 4 or 5 training days</li>
+                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">4 week mesocycles (training blocks) updated based on your progress</li>
+                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards</li>
+                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Progressively increasing volume and reps mesocycle to mesocycle</li>
+                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Progressively increasing volume and reps mesocycle to mesocycle</li>
+                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Cardio programmed from mesocycle 2 onwards</li>
+                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Get strong and build lean muscle</li>
+                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">This program is gym based only</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="nutrition-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-30 info-block d-flex">
+                <div class="info-holder">
+                    <h2 class="page-heading">CUT & TONE</h2>
+                    <p>Cut & Tone nutrition goal is for those wanting to lose fat and tone up! You'll receive a 7 day meal plan with an optional 8th day refeed. Choose this goal alongside any training program - YES you can build muscle whilst in a calorie deficit, however it’s easier from maintenance or surplus calories.</p>
+                </div>
+            </div>
+            <div class="col-md-30 nutrition-img-block">
+                <div class="img-holder text-center">
+                    <h2 class="page-heading">Nutrition Options</h2>
+                    <div class="img-wrap">
+                        <img src="{{ 'ella-olsson-2x.png' | asset_url }}" class="img-fluid pink-block" alt="img2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" class="round-img"><img src="{{ 'welcome-img.png' | asset_url }}" alt="welcome-img"></div>
+</section>
+<section class="membership-plan">
+    <div class="container">
+        <div class="row">
+            <div class="col-60 membership-title mb-5">
+                <h2 class="page-heading text-center">Membership plan</h2>
+                <div class="tab">
+                    <button class="tablinks monthly active" onclick="openCity(event, 'month')">MONTHLY</button>
+                    <button class="tablinks quarterly" onclick="openCity(event, 'quarter')">QUARTERLY</button>
+                  </div>
+                  
+                  <div id="month" class="tabcontent">
+                      <div class="plan-header">
+                    <span class="dollar-s">$</span><span class="fifty-2"> 52</span> <span class="dollar-month">/month</span>
+                    </div>
+                    <div class="d-flex list-holder">
+                        <ul class="list-unstyled pt-5">
+                            <li>Choose 4 or 5 training days</li>
+                            <li>4 week mesocycles (training blocks) updated based on your progress</li>
+                            <li>Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards</li>
+                            <li>Progressively increasing volume and reps mesocycle to mesocycle</li>
+                            <li>Progressively increasing volume and reps mesocycle to mesocycle</li>
+                            <li>Cardio programmed from mesocycle 2 onwards</li>
+                            <li>Get strong and build lean muscle</li>
+                            <li>This program is gym based only</li>
+                        </ul>
+                    </div>
+                    <a class="find-program" href="#"><span>transform yourself</span></a>
+                  </div>
+                  
+                  <div id="quarter" class="tabcontent" style="display: none;">
+                    <div class="plan-header">
+                        <span class="dollar-s">$</span><span class="fifty-2"> 52</span> <span class="dollar-month">/month</span>
+                        </div>
+                        <div class="d-flex list-holder">
+                            <ul class="list-unstyled pt-5">
+                                <li>Choose 4 or 5 training days</li>
+                                <li>4 week mesocycles (training blocks) updated based on your progress</li>
+                                <li>Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards</li>
+                                <li>Progressively increasing volume and reps mesocycle to mesocycle</li>
+                                <li>Progressively increasing volume and reps mesocycle to mesocycle</li>
+                                <li>Cardio programmed from mesocycle 2 onwards</li>
+                                <li>Get strong and build lean muscle</li>
+                                <li>This program is gym based only</li>
+                            </ul>
+                        </div>
+                        <a class="find-program" href="#"><span>yourself</span></a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "Cut & Ton",
+  "settings": [
+    {
+      "type": "select",
+      "id": "list_animation",
+      "label": "List Animation",
+      "options": [
+          {
+          "group": "FADE",
+          "value": "fade-up",
+          "label": "fade up"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down",
+          "label": "fade down"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-right",
+          "label": "fade right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-left",
+          "label": "fade left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-right",
+          "label": "fade up right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-left",
+          "label": "fade up left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-right",
+          "label": "fade down right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-left",
+          "label": "fade down left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-left",
+          "label": "flip left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-right",
+          "label": "flip right"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-up",
+          "label": "flip up"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-down",
+          "label": "flip down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in",
+          "label": "zoom in"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-up",
+          "label": "zoom in up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-down",
+          "label": "zoom in down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-left",
+          "label": "zoom in left"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-right",
+          "label": "zoom in right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out",
+          "label": "zoom out"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-up",
+          "label": "zoom out up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-down",
+          "label": "zoom out down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-right",
+          "label": "zoom out right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-left",
+          "label": "zoom out left"
+          }
+      ],
+      "default": "fade-up"
+    },
+    {
+      "type": "select",
+      "id": "image_animation",
+      "label": "Image Animation",
+      "options": [
+          {
+          "group": "FADE",
+          "value": "fade-up",
+          "label": "fade up"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down",
+          "label": "fade down"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-right",
+          "label": "fade right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-left",
+          "label": "fade left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-right",
+          "label": "fade up right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-left",
+          "label": "fade up left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-right",
+          "label": "fade down right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-left",
+          "label": "fade down left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-left",
+          "label": "flip left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-right",
+          "label": "flip right"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-up",
+          "label": "flip up"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-down",
+          "label": "flip down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in",
+          "label": "zoom in"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-up",
+          "label": "zoom in up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-down",
+          "label": "zoom in down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-left",
+          "label": "zoom in left"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-right",
+          "label": "zoom in right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out",
+          "label": "zoom out"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-up",
+          "label": "zoom out up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-down",
+          "label": "zoom out down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-right",
+          "label": "zoom out right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-left",
+          "label": "zoom out left"
+          }
+      ],
+      "default": "fade-up"
+    }
+  ]
+}
+{% endschema %}

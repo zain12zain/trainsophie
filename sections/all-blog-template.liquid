@@ -1,0 +1,421 @@
+{% if section.settings.bg_image_1 != blank %}
+<div class="position-relative">
+<img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="img-parallax1 img-parallaxx">
+{% endif %}
+<div class="container">
+    <ul class="row">
+      <div class="col-60">
+      <header class="section-header blog-header text-center">
+        <h1>BLOGS</h1>
+      <div class="mb-5">
+          {% assign count = 0 %}
+          <a class="tags_link active" href="/pages/blog">All</a>
+      {% for link in linklists.blogs.links %}
+      <a class="tags_link {% if link.current %} active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+      </div>
+      </header>
+    </div>
+    {% for link in linklists.blogs.links %}
+      {% assign blog = link.object %}
+          {% for article in blog.articles %}
+          {% assign count = count | plus: 1 %}
+          <li class="col-60 col-md-20 article-container">
+            <div>
+              <a href="{{ article.url }}" class="article__link">
+                {% if article.image %}
+                  {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
+                  {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
+                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+    
+                  {% include 'image-style', image: article.image, height: 345, wrapper_id: img_wrapper_id, img_id: img_id %}
+                  <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
+                    <div class="article__grid-image-container" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;">
+                      <img id="{{ img_id }}" data-aos="{{section.settings.image_animation}}" data-aos-duration="2000"
+                          class="article__grid-image lazyload"
+                          src="{{ article.image | img_url: '300x300' }}"
+                          data-src="{{ img_url }}"
+                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ article.image.aspect_ratio }}"
+                          data-sizes="auto"
+                          alt="">
+                    </div>
+                  </div>
+                  <noscript>
+                    <div class="article__grid-image-wrapper">
+                      {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+                    </div>
+                  </noscript>
+                {% endif %}
+                <div class="blog-info-container">
+                  <p class="blog--category">
+                    {% if section.settings.blog_show_date %}
+                        <span class="article__date">
+                            {{ article.published_at | time_tag: format: 'date' }}
+                        </span>
+                    {% endif %}
+                    <span class="blog--title">
+                      {{ blog.title }}
+                    </span>
+                  </p>
+                <h2 data-aos="{{section.settings.title_animation}}" data-aos-duration="2000" class="article__title h3{% if article.image %} article__title--has-image{% endif %}">
+                  {{ article.title | escape }}
+                </h2>
+              </a>
+              <div class="rte article__grid-excerpt">
+                {% if article.excerpt.size > 0 %}
+                  {{ article.excerpt }}
+                {% else %}
+                  {{ article.content | strip_html | truncate: 150 }}
+                {% endif %}
+              </div>
+              <div class="">
+                {% if section.settings.blog_show_author %}
+                  <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+                {% endif %}
+                {% if blog.comments_enabled? and article.comments_count > 0 %}
+                  <ul class="list--inline article__meta-buttons">
+                    <li>
+                      <a href="{{ article.url }}#comments" class="article__comment-count btn btn--tertiary btn--small">
+                        {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                      </a>
+                    </li>
+                  </ul>
+                  {% endif %}
+                  <ul class="list--inline article__meta-buttons">
+                    <li>
+                      <a href="{{ article.url }}" class="find-program" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
+                        <span>{{ 'blogs.article.read_more' | t }}</span>
+                      </a>
+                    </li>
+      
+                    {% if blog.comments_enabled? and article.comments_count > 0 %}
+                      <li>
+                        <a href="{{ article.url }}#comments" class="article__comment-count btn btn--tertiary btn--small">
+                          {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                        </a>
+                      </li>
+                    {% endif %}
+                  </ul>
+                  </div>
+                  {% if section.settings.bg_image_2 != blank %}
+                    {% if count == 1 %}
+                    <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="d-block d-md-none img-parallax2 img-parallax">
+                    {% endif %}
+                      {% if count == 3 %}
+                      <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="d-none d-md-block img-parallax2 img-parallax">
+                      {% endif %}
+                  {% endif %}
+              </div>
+              </div>
+            </li>
+            {% endfor %}
+            {% endfor %}
+        </ul>
+      </div>
+      {% if section.settings.bg_image_1 != blank %}
+      </div>
+      {% endif %}
+    {% schema %}
+    {
+      "name": "Blog pages",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "label": {
+            "da": "Vis forfatter",
+            "de": "Autor anzeigen",
+            "en": "Show author",
+            "es": "Mostrar autor",
+            "fi": "Näytä tekijä",
+            "fr": "Afficher l'auteur",
+            "hi": "लेखक दिखाएं",
+            "it": "Mostra autore",
+            "ja": "執筆者を表示する",
+            "ko": "작성자 표시",
+            "nb": "Vis forfatter",
+            "nl": "Auteur weergeven",
+            "pt-BR": "Exibir autor",
+            "pt-PT": "Mostrar autor",
+            "sv": "Visa författare",
+            "th": "แสดงผู้เขียน",
+            "zh-CN": "显示作者",
+            "zh-TW": "顯示作者"
+          },
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "label": {
+            "da": "Vis dato",
+            "de": "Datum anzeigen",
+            "en": "Show date",
+            "es": "Mostrar fecha",
+            "fi": "Näytä päivämäärä",
+            "fr": "Afficher la date",
+            "hi": "दिनांक दिखाएं",
+            "it": "Mostra data",
+            "ja": "日付を表示する",
+            "ko": "날짜 표시",
+            "nb": "Vis dato",
+            "nl": "Datum weergeven",
+            "pt-BR": "Exibir data",
+            "pt-PT": "Mostrar data",
+            "sv": "Visa datum",
+            "th": "แสดงวันที่",
+            "zh-CN": "显示日期",
+            "zh-TW": "顯示日期"
+          },
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image_1",
+          "label": "Background Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image_2",
+          "label": "Background Image 2"
+        },
+        {
+          "type": "select",
+          "id": "title_animation",
+          "label": "Title Animation",
+          "options": [
+              {
+              "group": "FADE",
+              "value": "fade-up",
+              "label": "fade up"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-down",
+              "label": "fade down"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-right",
+              "label": "fade right"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-left",
+              "label": "fade left"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-up-right",
+              "label": "fade up right"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-up-left",
+              "label": "fade up left"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-down-right",
+              "label": "fade down right"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-down-left",
+              "label": "fade down left"
+              },
+              {
+              "group": "FLIP",
+              "value": "flip-left",
+              "label": "flip left"
+              },
+              {
+              "group": "FLIP",
+              "value": "flip-right",
+              "label": "flip right"
+              },
+              {
+              "group": "FLIP",
+              "value": "flip-up",
+              "label": "flip up"
+              },
+              {
+              "group": "FLIP",
+              "value": "flip-down",
+              "label": "flip down"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in",
+              "label": "zoom in"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in-up",
+              "label": "zoom in up"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in-down",
+              "label": "zoom in down"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in-left",
+              "label": "zoom in left"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in-right",
+              "label": "zoom in right"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out",
+              "label": "zoom out"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out-up",
+              "label": "zoom out up"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out-down",
+              "label": "zoom out down"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out-right",
+              "label": "zoom out right"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out-left",
+              "label": "zoom out left"
+              }
+          ],
+          "default": "fade-up"
+        },
+        {
+          "type": "select",
+          "id": "image_animation",
+          "label": "Image Animation",
+          "options": [
+              {
+              "group": "FADE",
+              "value": "fade-up",
+              "label": "fade up"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-down",
+              "label": "fade down"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-right",
+              "label": "fade right"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-left",
+              "label": "fade left"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-up-right",
+              "label": "fade up right"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-up-left",
+              "label": "fade up left"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-down-right",
+              "label": "fade down right"
+              },
+              {
+              "group": "FADE",
+              "value": "fade-down-left",
+              "label": "fade down left"
+              },
+              {
+              "group": "FLIP",
+              "value": "flip-left",
+              "label": "flip left"
+              },
+              {
+              "group": "FLIP",
+              "value": "flip-right",
+              "label": "flip right"
+              },
+              {
+              "group": "FLIP",
+              "value": "flip-up",
+              "label": "flip up"
+              },
+              {
+              "group": "FLIP",
+              "value": "flip-down",
+              "label": "flip down"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in",
+              "label": "zoom in"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in-up",
+              "label": "zoom in up"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in-down",
+              "label": "zoom in down"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in-left",
+              "label": "zoom in left"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-in-right",
+              "label": "zoom in right"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out",
+              "label": "zoom out"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out-up",
+              "label": "zoom out up"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out-down",
+              "label": "zoom out down"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out-right",
+              "label": "zoom out right"
+              },
+              {
+              "group": "ZOOM",
+              "value": "zoom-out-left",
+              "label": "zoom out left"
+              }
+          ],
+          "default": "fade-up"
+        }
+      ]
+    }
+    {% endschema %}

@@ -1,30 +1,17 @@
 <div class="banner-img">
     <div class="row no-gutters align--center">
-        {% if section.settings.image != blank %}
-        <div class="col-60 col-lg-55 main-banner">
-        <!-- <img src="{{ section.settings.image | img_url: '2000x' }}" class="banner-img">
-        <div class="main-banner-text-container">
-            <h1 class="main-banner-text">
-                {{ section.settings.title }}
-            </h1>
-            {% if section.settings.button_text != blank and section.settings.button_text != blank %}
-            <a class="find-program" href="{{ section.settings.link }}">
-                {{ section.settings.button_text }}
-            </a>
-            {% endif %}
-        </div> -->
-
+        {% if section.settings.video_id != blank %}
+        <div class="col-60 col-lg-51 main-banner">
           <section class="main-slider">
             <div class="item youtube">
               <iframe class="embed-player slide-media" width="980" height="520" src="https://www.youtube.com/embed/{{section.settings.video_id}}?enablejsapi=1&controls=0&fs=0&iv_load_policy=3&rel=0&showinfo=0&loop=1&playlist={{section.settings.video_id}}&start=1" frameborder="0" allowfullscreen></iframe> 
-              <!-- <p class="caption">YouTube</p> -->
               <div class="main-banner-text-container">
-                <h1 class="main-banner-text">
+                <h1 data-aos="{{section.settings.title_animation}}" data-aos-duration="2000" class="main-banner-text">
                     {{ section.settings.title }}
                 </h1>
                 {% if section.settings.button_text != blank and section.settings.button_text != blank %}
                 <a class="find-program" href="{{ section.settings.link }}">
-                    {{ section.settings.button_text }}
+                  <span>{{ section.settings.button_text }}</span>
                 </a>
                 {% endif %}
             </div>
@@ -140,10 +127,21 @@
     </style>
 <script>
   jQuery(document).ready(function(){
+    setTimeout(function(){
+      var topoff = jQuery('.slick-active .slider-content').offset().top;
+      var leftoff = jQuery('.slick-active .slider-content').offset().left;
+      var cont_width = jQuery('.slick-active .slider-content').outerWidth();
+      var winwid = jQuery(window).innerWidth();
+      var leftoffs = leftoff + cont_width;
+      var newoffs = winwid - leftoffs;
+      jQuery('.body-right').width(newoffs).height(topoff);
+    },1000);
     setWrapWidth();
   })
   jQuery(window).resize(function(){
+    setTimeout(function(){
     setWrapWidth();
+  },1000);
   })
   function setWrapWidth(){
     setTimeout(function(){
@@ -176,6 +174,124 @@
         "id": "title",
         "label": "Title"
     },
+    {
+      "type": "select",
+      "id": "title_animation",
+      "label": "Animation",
+      "options": [
+          {
+          "group": "FADE",
+          "value": "fade-up",
+          "label": "fade up"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down",
+          "label": "fade down"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-right",
+          "label": "fade right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-left",
+          "label": "fade left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-right",
+          "label": "fade up right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-left",
+          "label": "fade up left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-right",
+          "label": "fade down right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-left",
+          "label": "fade down left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-left",
+          "label": "flip left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-right",
+          "label": "flip right"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-up",
+          "label": "flip up"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-down",
+          "label": "flip down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in",
+          "label": "zoom in"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-up",
+          "label": "zoom in up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-down",
+          "label": "zoom in down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-left",
+          "label": "zoom in left"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-right",
+          "label": "zoom in right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out",
+          "label": "zoom out"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-up",
+          "label": "zoom out up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-down",
+          "label": "zoom out down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-right",
+          "label": "zoom out right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-left",
+          "label": "zoom out left"
+          }
+      ],
+      "default": "flip-down"
+      },
   {
       "type": "text",
       "id": "button_text",

@@ -2,8 +2,8 @@
   "current": {
     "color_text": "#3a3a3a",
     "color_body_text": "#333232",
-    "color_sale_text": "#ea0606",
-    "color_button": "#3a3a3a",
+    "color_sale_text": "#a5756a",
+    "color_button": "#d0a190",
     "color_button_text": "#ffffff",
     "color_small_button_text_border": "#3a3a3a",
     "color_text_field_text": "#000000",
@@ -116,7 +116,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_3.png",
+              "image_animation": "flip-down",
               "title": "Shred Unwanted Body Fat",
+              "title_animation": "fade-down-left",
               "weeks": "6 Weeks",
               "price": "$79.99",
               "link": "#"
@@ -126,7 +128,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_4.png",
+              "image_animation": "fade-up",
               "title": "CREATE YOUR DREAM SHAPE",
+              "title_animation": "flip-down",
               "weeks": "6 Weeks",
               "price": "$199.99",
               "link": "#"
@@ -136,7 +140,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_6.png",
+              "image_animation": "flip-down",
               "title": "BOOTY & CORE PROGRAM",
+              "title_animation": "zoom-in",
               "weeks": "10 Weeks",
               "price": "159.99",
               "link": "#"
@@ -146,7 +152,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_4.png",
+              "image_animation": "flip-down",
               "title": "BOOTY & CORE PROGRAM",
+              "title_animation": "zoom-in",
               "weeks": "8 Weeks",
               "price": "$80",
               "link": "#"
@@ -156,7 +164,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_6.png",
+              "image_animation": "zoom-out",
               "title": "Shred Unwanted Body Fat",
+              "title_animation": "flip-down",
               "weeks": "5 weeks",
               "price": "$120",
               "link": "#"
@@ -172,6 +182,7 @@
         ],
         "settings": {
           "title": "Programs",
+          "title_animation": "fade-up",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut a magna. Nam bibendum suscipit nunc, quis euismod enim pulvinar quis.",
           "bg_color": "#ebd0c2"
         }
@@ -181,8 +192,11 @@
         "settings": {
           "bg_image": "shopify:\/\/shop_images\/Backround_element_3.png",
           "image": "shopify:\/\/shop_images\/image3_1.png",
+          "image_animation": "flip-down",
+          "title_animation": "flip-down",
+          "button_animation": "flip-down",
           "title": "WHAT IS TRAIN WITH SOPH?",
-          "text": "<p>I found happiness through fitness, and created TWS as a platform to positively impact thousands of lives around the world. My goal is to provide all women a supportive environment to build a body and life that they can be proud of!<\/p>\n<p>so many, the original goal was simple, I wanted to change my body, build muscle and lose fat.<\/p>\n<p>There were a lot of ups and downs (there still are!), but I created a body and lifestyle that I enjoy and love. I want to share my learnings with you, and help you on your journey too.<\/p>",
+          "text": "<p>I found happiness through fitness, and created TWS as a platform to positively impact thousands of lives around the world. My goal is to provide all women a supportive environment to build a body and life that they can be proud of!<\/p>\n<p>Like so many, the original goal was simple, I wanted to change my body, build muscle and lose fat.<\/p>\n<p>There were a lot of ups and downs (there still are!), but I created a body and lifestyle that I enjoy and love. I want to share my learnings with you, and help you on your journey too.<\/p>",
           "button_text": "Know More",
           "button_url": "#"
         }
@@ -253,10 +267,13 @@
           "bg_image": "shopify:\/\/shop_images\/Backround_element_1.png",
           "drop_image": "shopify:\/\/shop_images\/Backround_element_2.png",
           "image": "shopify:\/\/shop_images\/image_1.png",
+          "image_animation": "flip-down",
           "title": "WHY TWS?",
+          "title_animation": "flip-down",
           "text": "<p>The TWS Platform is designed to provide EVERYTHING you need to make your fitness journey as enjoyable one. I've made sure to give you a customised, Personal experience that works off your lifestyle and what you need from a program.<\/p>\n<p>Stay accountable,track your progress and join a community of like-minded women on a journey similar to yours!Know that my team and i will be with you, every step of the way.<\/p>",
           "button_text": "Find your program",
-          "button_url": "#"
+          "button_url": "#",
+          "button_animation": "flip-down"
         }
       },
       "1598034822654": {
@@ -266,7 +283,9 @@
             "type": "model",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_5.png",
+              "image_animation": "fade-up",
               "title": "Maria Dee",
+              "title_animation": "fade-left",
               "sub_title": "Model",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut a magna. Nam bibendum suscipit nunc, quis euismod enim pulvinar quis.<\/p>",
               "link": "#"
@@ -276,7 +295,9 @@
             "type": "model",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_5.png",
+              "image_animation": "flip-down",
               "title": "Maria Dee",
+              "title_animation": "fade-right",
               "sub_title": "Model",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut a magna. Nam bibendum suscipit nunc, quis euismod enim pulvinar quis.<\/p>",
               "link": ""
@@ -296,6 +317,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/slide1.png",
+              "image_animation": "flip-down",
               "link_text": "Read story",
               "link": "#"
             }
@@ -304,6 +326,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
+              "image_animation": "flip-down",
               "link_text": "Read story",
               "link": "#"
             }
@@ -312,6 +335,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/GABRIELA_RIOINEGRO_FRONT_-_wk_1_12_2x_5fec39c7-9ae3-49af-b376-8c8a8e0b8459.png",
+              "image_animation": "flip-down",
               "link_text": "Read story",
               "link": "#"
             }
@@ -320,6 +344,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
+              "image_animation": "flip-down",
               "link_text": "Read story",
               "link": "#"
             }
@@ -328,6 +353,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/GABRIELA_RIOINEGRO_FRONT_-_wk_1_12_2x_5fec39c7-9ae3-49af-b376-8c8a8e0b8459.png",
+              "image_animation": "flip-down",
               "link_text": "Read story",
               "link": "#"
             }
@@ -342,6 +368,7 @@
         ],
         "settings": {
           "title": "Transformations",
+          "title_animation": "flip-down",
           "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut a magna. Nam bibendum suscipit nunc, quis euismod enim pulvinar quis.<\/p>"
         }
       },
@@ -349,10 +376,133 @@
         "type": "main-banner-section",
         "settings": {
           "image": "shopify:\/\/shop_images\/banner_1.png",
+          "video_id": "QV5EXOFcdrQ",
           "title": "Capable of More",
+          "title_animation": "flip-down",
           "button_text": "Find Your Program",
           "link": "#",
           "featured_text": "Train With Soph"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 4,
+          "rows": 2,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true,
+          "title_animation": "fade-up",
+          "image_animation": "fade-up"
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": true,
+          "media_size": "medium",
+          "enable_image_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like"
+        }
+      },
+      "cut-tone-transformation": {
+        "type": "cut-tone-transformation",
+        "blocks": {
+          "1598738049660": {
+            "type": "transformation",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
+              "link_text": "READ STORY",
+              "link": "#"
+            }
+          },
+          "1598738070259": {
+            "type": "transformation",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GABRIELA_RIOINEGRO_FRONT_-_wk_1_12_2x_745366d0-0db6-430b-9606-015fed305ef0.png",
+              "link_text": "READ STORY",
+              "link": "#"
+            }
+          },
+          "1598738077123": {
+            "type": "transformation",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_7_cc881cc9-063e-4259-9204-6a6705e6c449.png",
+              "link_text": "READ STORY",
+              "link": "#"
+            }
+          },
+          "1598738086341": {
+            "type": "transformation",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/slide1.png",
+              "link_text": "READ STORY",
+              "link": "#"
+            }
+          },
+          "1598738097516": {
+            "type": "transformation",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
+              "link_text": "READ STORY",
+              "link": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1598738049660",
+          "1598738070259",
+          "1598738077123",
+          "1598738086341",
+          "1598738097516"
+        ],
+        "settings": {
+          "title": "Transformations",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper<\/p>"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "bg_image_1": "shopify:\/\/shop_images\/Blog-1.png",
+          "bg_image_2": "shopify:\/\/shop_images\/Blog-2_1.png",
+          "title_animation": "fade-up",
+          "image_animation": "fade-up"
+        }
+      },
+      "all-blog-template": {
+        "type": "all-blog-template",
+        "settings": {
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "bg_image_1": "shopify:\/\/shop_images\/Blog-1.png",
+          "bg_image_2": "shopify:\/\/shop_images\/Blog-2_1.png",
+          "title_animation": "fade-down",
+          "image_animation": "fade-up"
+        }
+      },
+      "about-me-template": {
+        "type": "about-me-template",
+        "settings": {
+          "bg_image_1": "shopify:\/\/shop_images\/About-1_1.png",
+          "bg_image_2": "shopify:\/\/shop_images\/About-2_1.png",
+          "bg_image_3": "shopify:\/\/shop_images\/About-3_1.png"
         }
       }
     },

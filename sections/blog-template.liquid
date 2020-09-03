@@ -1,8 +1,12 @@
+{% if section.settings.bg_image_1 != blank %}
+<div class="position-relative">
+<img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="img-parallax1 img-parallaxx">
+{% endif %}
 {% paginate blog.articles by 12 %}
-
-<div class="page-width">
-  <header class="section-header text-center">
+<div class="container">
+  <header class="section-header blog-header text-center">
     <h1>{{ page_title }}</h1>
+    {% comment %}
     {% if blog.tags.size > 0 %}
       <div class="blog-filter">
         <label class="blog-filter__label select-label" for="BlogTagFilter">{{ 'collections.filters.title_tags' | t }}</label>
@@ -17,15 +21,21 @@
         </div>
       </div>
     {% endif %}
+    {% endcomment %}
+    <a class="tags_link" href="/pages/blog">All</a>
+    {% for link in linklists.blogs.links %}
+    <a class="tags_link {% if link.current %} active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
   </header>
 </div>
-
+{% assign count = 0 %}
 
 {% if section.settings.layout == 'grid' %}
-  <div class="page-width">
-    <ul class="grid grid--uniform grid--blog">
+  <div class="container">
+    <ul class="row">
       {% for article in blog.articles %}
-        <li class="grid__item medium-up--one-third">
+      {% assign count = count | plus: 1 %}
+        <li class="col-60 col-md-20 article-container">
           <a href="{{ article.url }}" class="article__link">
             {% if article.image %}
               {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
@@ -51,7 +61,17 @@
                 </div>
               </noscript>
             {% endif %}
-
+            <div class="blog-info-container">
+            <p class="blog--category">
+              {% if section.settings.blog_show_date %}
+                  <span class="article__date">
+                      {{ article.published_at | time_tag: format: 'date' }}
+                  </span>
+              {% endif %}
+              <span class="blog--title">
+                {{ blog.title }}
+              </span>
+            </p>
             <h2 class="article__title h3{% if article.image %} article__title--has-image{% endif %}">
               {{ article.title | escape }}
             </h2>
@@ -60,12 +80,6 @@
           <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
             {% if section.settings.blog_show_author %}
               <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-            {% endif %}
-
-            {% if section.settings.blog_show_date %}
-              <span class="article__date">
-                {{ article.published_at | time_tag: format: 'date' }}
-              </span>
             {% endif %}
 
             <div class="rte article__grid-excerpt">
@@ -90,8 +104,8 @@
 
             <ul class="list--inline article__meta-buttons">
               <li>
-                <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
-                  {{ 'blogs.article.read_more' | t }}
+                <a href="{{ article.url }}" class="find-program" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
+                  <span>{{ 'blogs.article.read_more' | t }}</span>
                 </a>
               </li>
 
@@ -104,6 +118,15 @@
               {% endif %}
             </ul>
           </div>
+          {% if section.settings.bg_image_2 != blank %}
+          {% if count == 1 %}
+          <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="d-block d-md-none img-parallax2 img-parallax">
+          {% endif %}
+            {% if count == 3 %}
+            <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="d-none d-md-block img-parallax2 img-parallax">
+            {% endif %}
+        {% endif %}
+          </div>
         </li>
       {% endfor %}
     </ul>
@@ -112,11 +135,11 @@
   <ul class="blog-list-view">
     {% for article in blog.articles %}
       <li class="border-top">
-        <div class="page-width">
+        <div class="container">
           <div class="grid">
             <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
               <div class="article-listing">
-                <h2 class="article__title h3"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                <h2 class="article__title h3" data-aos="{{section.settings.title_animation}}" data-aos-duration="2000"><a href="{{ article.url }}">{{ article.title }}</a></h2>
                 {% if section.settings.blog_show_author %}
                   <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
                 {% endif %}
@@ -136,7 +159,7 @@
 
                   <div id="{{ img_wrapper_id }}" class="article__list-image-wrapper js">
                     <a href="{{ article.url }}" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;" class="article__list-image-container">
-                      <img id="{{ img_id }}"
+                      <img id="{{ img_id }}" data-aos="{{section.settings.image_animation}}" data-aos-duration="2000"
                            class="article__list-image lazyload"
                            src="{{ article.image | img_url: '300x300' }}"
                            data-src="{{ img_url }}"
@@ -202,7 +225,9 @@
 {%- endif -%}
 
 {% endpaginate %}
-
+{% if section.settings.bg_image_1 != blank %}
+</div>
+{% endif %}
 
 
 {% schema %}
@@ -350,6 +375,252 @@
         "zh-TW": "顯示日期"
       },
       "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_1",
+      "label": "Background Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_2",
+      "label": "Background Image 2"
+    },
+    {
+      "type": "select",
+      "id": "title_animation",
+      "label": "Title Animation",
+      "options": [
+          {
+          "group": "FADE",
+          "value": "fade-up",
+          "label": "fade up"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down",
+          "label": "fade down"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-right",
+          "label": "fade right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-left",
+          "label": "fade left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-right",
+          "label": "fade up right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-left",
+          "label": "fade up left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-right",
+          "label": "fade down right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-left",
+          "label": "fade down left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-left",
+          "label": "flip left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-right",
+          "label": "flip right"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-up",
+          "label": "flip up"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-down",
+          "label": "flip down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in",
+          "label": "zoom in"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-up",
+          "label": "zoom in up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-down",
+          "label": "zoom in down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-left",
+          "label": "zoom in left"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-right",
+          "label": "zoom in right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out",
+          "label": "zoom out"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-up",
+          "label": "zoom out up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-down",
+          "label": "zoom out down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-right",
+          "label": "zoom out right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-left",
+          "label": "zoom out left"
+          }
+      ],
+      "default": "fade-up"
+    },
+    {
+      "type": "select",
+      "id": "image_animation",
+      "label": "Image Animation",
+      "options": [
+          {
+          "group": "FADE",
+          "value": "fade-up",
+          "label": "fade up"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down",
+          "label": "fade down"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-right",
+          "label": "fade right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-left",
+          "label": "fade left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-right",
+          "label": "fade up right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-left",
+          "label": "fade up left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-right",
+          "label": "fade down right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-left",
+          "label": "fade down left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-left",
+          "label": "flip left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-right",
+          "label": "flip right"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-up",
+          "label": "flip up"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-down",
+          "label": "flip down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in",
+          "label": "zoom in"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-up",
+          "label": "zoom in up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-down",
+          "label": "zoom in down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-left",
+          "label": "zoom in left"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-right",
+          "label": "zoom in right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out",
+          "label": "zoom out"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-up",
+          "label": "zoom out up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-down",
+          "label": "zoom out down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-right",
+          "label": "zoom out right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-left",
+          "label": "zoom out left"
+          }
+      ],
+      "default": "fade-up"
     }
   ]
 }

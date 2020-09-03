@@ -184,41 +184,53 @@ responsive: [
 });
 </script>
 <script>
-    $('.shape-slider').slick({
-  dots: true,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fas fa-angle-left'></i></button>",
+  $('.shape-slider').slick({
+dots: true,
+infinite: false,
+speed: 300,
+slidesToShow: 4,
+slidesToScroll: 1,
+prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fas fa-angle-left'></i></button>",
 nextArrow:"<button type='button' class='slick-next pull-right'><i class='fas fa-angle-right'></i></i></button>",
-  responsive: [
-    {
-      breakpoint: 1400,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
+responsive: [
+  {
+    breakpoint: 1400,
+    settings: {
+      slidesToShow: 3,
+      slidesToScroll: 1
     }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
+  },
+  {
+    breakpoint: 600,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 1
+    }
+  },
+  {
+    breakpoint: 480,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+  }
+  // You can unslick at a given breakpoint now by adding:
+  // settings: "unslick"
+  // instead of a settings object
+]
 });
+$('.product-single__thumbnails').slick({
+    arrow: false,
+    dots: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 1
+});
+$('.accordian-heading').click(function(){
+  $(this).next('.accordian-body').slideToggle();
+  $(this).toggleClass('active');
+})
 </script>
 <script>
   var slideWrapper = $(".main-slider"),
@@ -356,6 +368,101 @@ cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
 $(window).on("resize.slickVideoPlayer", function(){  
 resizePlayer(iframes, 16/9);
 });
+
+
+$('.recommendation-slider').slick({
+  dots: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fas fa-angle-left'></i></button>",
+nextArrow:"<button type='button' class='slick-next pull-right'><i class='fas fa-angle-right'></i></i></button>",
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1.5,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+
+
+$('.find-slider').slick({
+  dots: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fas fa-angle-left'></i></button>",
+nextArrow:"<button type='button' class='slick-next pull-right'><i class='fas fa-angle-right'></i></i></button>",
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+ $('.img-parallax').each(function(){
+    var img = $(this);
+    var imgParent = $(this).parent();
+    function parallaxImg () {
+      var speed = img.data('speed');
+      var imgY = imgParent.offset().top;
+      var winY = $(this).scrollTop();
+      var winH = $(this).height();
+      var parentH = imgParent.innerHeight();
+      var winBottom = winY + winH;
+      if (winBottom > imgY && winY < imgY + parentH) {
+        var imgBottom = ((winBottom - imgY) * speed);
+        var imgTop = winH + parentH;
+        var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
+      }
+      img.css({
+        top: imgPercent + '%',
+        transform: 'translate(-50%, -' + imgPercent + '%)'
+      });
+    }
+    $(document).on({
+      scroll: function () {
+        parallaxImg();
+      }, ready: function () {
+        parallaxImg();
+      }
+    });
+  });
 </script>
 {% schema %}
 {
