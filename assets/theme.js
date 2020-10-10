@@ -6712,7 +6712,7 @@ theme.Product = (function() {
 
     _initAddToCart: function() {
       $(this.selectors.productForm, this.$container).on(
-        'submit',
+        'submit_backup',
         function(evt) {
           if (this.$addToCart.is('[aria-disabled]')) {
             evt.preventDefault();

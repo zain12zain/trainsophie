@@ -1,36 +1,44 @@
 <div class="about-template">
-    <div class="row no-gutters">
-        <div class="col-60 about-banner text-center">
+    <div class="row no-gutters position-relative">
+        {% if section.settings.bg_image_1 != blank %}
+            <img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="about-prallax-1 img-parallaxx">
+        {% endif %}
+        {% if section.settings.bg_image_2 != blank %}
+            <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="about-prallax-2 img-parallaxx">
+        {% endif %}
+        <div class="col-60 about-banner text-center position-relative">
+            {% if section.settings.bg_image_4 != blank %}
+            <img src="{{ section.settings.bg_image_4 | img_url: '400x' }}" data-speed="2" class="about-prallax-4 img-parallaxx">
+            {% endif %}
             <h2 class="page-heading">
                 {{ page.title }}
             </h2>
-            {% if section.settings.bg_image_1 != blank %}
-                <div class="about-1-container">
-                    <img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="about-prallax-1 img-parallax">
+            <div class="position-relative">
+                {% if section.settings.image != blank %}
+                <img class="{% if section.settings.desktop_image != blank %} d-block d-md-none {% endif %} about-image1" data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" src="{{ section.settings.image | img_url: '2000x' }}">
+                {% endif %}
+                {% if section.settings.desktop_image != blank %}
+                <div class="d-none d-md-block">
+                    <img class="about-image1" data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" src="{{ section.settings.desktop_image | img_url: '2000x' }}">
                 </div>
-            {% endif %}
-            {% if section.settings.bg_image_2 != blank %}
-                <div class="about-2-container">
-                    <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="about-prallax-2 img-parallax">
-                </div>
-            {% endif %}
-            {% if section.settings.bg_image_3 != blank %}
+                {% endif %}
+                {% if section.settings.bg_image_3 != blank %}
                 <div class="about-3-container">
-                    <img src="{{ section.settings.bg_image_3 | img_url: '400x' }}" data-speed="2" class="about-prallax-2 img-parallax">
+                    <img src="{{ section.settings.bg_image_3 | img_url: '400x' }}" data-speed="2" class="about-prallax-3 img-parallaxx">
                 </div>
-            {% endif %}
-            <img class="about-image1" src="{{ 'Soph_01.png' | asset_url }}">
+            {% endif %} 
+            </div>
         </div>
         <div class="banner-text">
+            {% if section.settings.title != blank %}
             <h2 class="page-heading">
-                HI, I’M SOPH
+                {{ section.settings.title }}
             </h2>
-            <p>I can’t think of a way to write this without sounding lame.. but hear me out!</p>
-            <p>a coach, my philosophy for living a healthy life comprises of three key things: Training, Nutrition & Mindset.</p>
-            <p>This is how I live my life - I train hard, I eat to fuel my sessions (yes this involves chocolate) and I work equally as hard to train my mind.</p>
-            <p>I wasn’t always fit, strong and active. I gained a serious amount of weight in 2014 and want you to know that there’s nothing that makes me special - anyone and everyone can achieve an amazing physique. You just need the right tools - and I’ve got you covered with your training and nutrition programs, mindset coaching and more in my TWS Coaching Platform.</p>
-            <a class="find-program about-button" href="#">
-                <span> your program</span></a>
+            {% endif %}
+            {{ section.settings.text }}
+                {% if section.settings.button_link != blank and section.settings.button_text != blank %}
+                <a class="find-program about-button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span></a>
+                {% endif %}
         </div>
     </div>
     <div class="about-bottom">
@@ -38,16 +46,19 @@
             <div class="row align--center no-gutters">
                 <div class="col-60 col-md-30">
                     <div class="begin--container">
-                    <h2 class="page-heading">
-                        HOW DID I BEGIN?
-                    </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem metus, tempor at sollicitudin ut, pretium quis erat. Curabitur sed vulputate lectus, ac faucibus ante. Ut aliquam lacinia est sed pharetra. Maecenas dignissim justo et turpis eleifend, ut placerat tellus aliquam. Quisque eu imperdiet lorem. Quisque ac viverra lectus, eget dapibus nulla. Duis posuere nulla tortor, eget gravida ex finibus eu. Ut pharetra ac nisl id gravida.</p>
-                    <p>Integer commodo lectus nec ligula condimentum ultrices. Cras feugiat nunc ac efficitur tincidunt. Aliquam ex ex, viverra vitae varius ut, interdum ut massa. Donec eu tincidunt eros. Etiam laoreet sodales felis, sit amet aliquet velit commodo nec. Quisque imperdiet, leo vitae gravida interdum, tellus mauris vehicula urna, et eleifend dolor nibh a sapien.</p>
+                    {% if section.settings.title2 != blank %}
+                        <h2 class="page-heading">
+                        {{ section.settings.title2 }}
+                        </h2>
+                    {% endif %}
+                    {{ section.settings.text2 }}
                 </div>
                 </div>
                 <div class="col-60 col-md-30 ">
-                    <img src="{{ 'Soph_02.png' | asset_url }}">
-                </div>        
+                    {% if section.settings.image2 != blank %}
+                    <img src="{{ section.settings.image2 | img_url: '1000x' }}">
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
@@ -70,7 +81,293 @@
     "type": "image_picker",
     "id": "bg_image_3",
     "label": "Background Image 3"
-  }
+  },
+  {
+    "type": "image_picker",
+    "id": "bg_image_4",
+    "label": "Background Image 4"
+  },
+  {
+    "type": "image_picker",
+    "id": "image",
+    "label": "Mobile Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Desktop Image"
+    },
+    {
+    "type": "select",
+    "id": "image_animation",
+    "label": "Image Animation",
+    "options": [
+        {
+        "group": "FADE",
+        "value": "fade-up",
+        "label": "fade up"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-in",
+        "label": "fade in"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-right",
+        "label": "fade right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-left",
+        "label": "fade left"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-up-right",
+        "label": "fade up right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-up-left",
+        "label": "fade up left"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-down-right",
+        "label": "fade down right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-down-left",
+        "label": "fade down left"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-left",
+        "label": "flip left"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-right",
+        "label": "flip right"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-up",
+        "label": "flip up"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-down",
+        "label": "flip down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in",
+        "label": "zoom in"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-up",
+        "label": "zoom in up"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-down",
+        "label": "zoom in down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-left",
+        "label": "zoom in left"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-right",
+        "label": "zoom in right"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out",
+        "label": "zoom out"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-up",
+        "label": "zoom out up"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-down",
+        "label": "zoom out down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-right",
+        "label": "zoom out right"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-left",
+        "label": "zoom out left"
+        }
+    ],
+    "default": "flip-down"
+    },
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Title"
+    },
+    {
+    "type": "select",
+    "id": "title_animation",
+    "label": "Title Animation",
+    "options": [
+        {
+        "group": "FADE",
+        "value": "fade-up",
+        "label": "fade up"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-in",
+        "label": "fade in"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-right",
+        "label": "fade right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-left",
+        "label": "fade left"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-up-right",
+        "label": "fade up right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-up-left",
+        "label": "fade up left"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-down-right",
+        "label": "fade down right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-down-left",
+        "label": "fade down left"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-left",
+        "label": "flip left"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-right",
+        "label": "flip right"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-up",
+        "label": "flip up"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-down",
+        "label": "flip down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in",
+        "label": "zoom in"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-up",
+        "label": "zoom in up"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-down",
+        "label": "zoom in down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-left",
+        "label": "zoom in left"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-right",
+        "label": "zoom in right"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out",
+        "label": "zoom out"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-up",
+        "label": "zoom out up"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-down",
+        "label": "zoom out down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-right",
+        "label": "zoom out right"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-left",
+        "label": "zoom out left"
+        }
+    ],
+    "default": "flip-down"
+    },
+    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Buton Link"
+    },
+    {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image 2"
+    },
+    {
+        "type": "text",
+        "id": "title2",
+        "label": "Title 2"
+    },
+    {
+        "type": "richtext",
+        "id": "text2",
+        "label": "Text 2"
+    }
   ]
 }
 {% endschema %}

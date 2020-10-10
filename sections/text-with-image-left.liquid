@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row mt-5 shape--container no-gutters">
+    <div class="row margin-mobile shape--container no-gutters">
         {% if section.settings.bg_image != blank %}
-        <img class="shape--bg-image" src="{{ section.settings.bg_image | img_url: '500x' }}">
+        <img src="{{ section.settings.bg_image | img_url: '500x' }}" data-speed="2" class="shape--bg-image img-parallax">
         {% endif %}
         <div class="col-60 col-md-25">
             <div class="image-container">
@@ -12,15 +12,17 @@
         </div>
         <div class="col-60 col-md-35 mt-5-pt-4">
             <h1 data-aos="{{section.settings.title_animation}}" data-aos-duration="2000" class="section-title">{{section.settings.title }}</h1>
-            {{ section.settings.text }}
+            <div class="info-holder">
+                {{ section.settings.text }}
+            </div>
             {% if section.settings.button_url != blank and section.settings.button_text != blank %}
                 <div class="find-button">
-                    <a data-aos="{{section.settings.button_animation}}" data-aos-duration="2000" class="find-program" href="{{section.settings.button_url}}">
+                    <a data-aos="{{section.settings.button_animation}}" data-aos-duration="2000" class="find-program home-button" href="{{section.settings.button_url}}">
                         <span>{{ section.settings.button_text }}</span>
                     </a>
                 </div>
             {% endif %}
-        </div>
+        </div> 
     </div>
 </div>
 {% schema %}
@@ -49,8 +51,8 @@
           },
           {
           "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
+          "value": "fade-in",
+          "label": "fade in"
           },
           {
           "group": "FADE",
@@ -167,8 +169,8 @@
           },
           {
           "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
+          "value": "fade-in",
+          "label": "fade in"
           },
           {
           "group": "FADE",
@@ -285,8 +287,8 @@
             },
             {
             "group": "FADE",
-            "value": "fade-down",
-            "label": "fade down"
+            "value": "fade-in",
+            "label": "fade in"
             },
             {
             "group": "FADE",

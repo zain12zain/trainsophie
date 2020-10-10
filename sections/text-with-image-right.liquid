@@ -3,43 +3,46 @@
         <div class="col-60 col-md-35 order-2-mobile">
             <div class="text-container text-left">
             <h1 data-aos="{{section.settings.title_animation}}" data-aos-duration="2000" class="section-title">{{section.settings.title }}</h1>
-            {{ section.settings.text }}
+            <div class="info-holder">
+                {{ section.settings.text }}
+            </div>
         </div>
-        <div class="featured-points d-flex">
-            {% for block in section.blocks %}
-            <div class="point text-center">
-                <div class="item">
-                    {% if block.settings.image != blank %}
-                        <img src="{{ block.settings.image | img_url: '200x' }}">
-                    {% endif %}
+        <div class="row no-gutters justify-center">
+            <div class="col-60 col-md-55">
+                <div class="row no-gutters justify-center-mobile">
+                {% for block in section.blocks %}
+                    <div class="col-15">
+                        <div class="">
+                            <div class="points-item">
+                                {% if block.settings.image != blank %}
+                                    <img src="{{ block.settings.image | img_url: '200x' }}">
+                                {% endif %}
+                            </div>
+                            {% if block.settings.step != blank %}
+                            <div class="step-container">
+                                <p>{{ block.settings.step }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
                 </div>
-                {% if block.settings.step != blank %}
-                    <p>{{ block.settings.step }}</p>
-                {% endif %}
             </div>
-            {% if forloop.index == 4 %}
-            </div>
-            <div class="featured-points d-flex margin-items">
-            {% endif %}
-            {% endfor %}
         </div>
         {% if section.settings.button_url != blank and section.settings.button_text != blank %}
         <div class="find-button">
-            <a data-aos="{{section.settings.button_animation}}" data-aos-duration="2000" class="find-program" href="{{section.settings.button_url}}">
+            <a data-aos="{{section.settings.button_animation}}" data-aos-duration="2000" class="find-program home-button" href="{{section.settings.button_url}}">
                 <span>{{ section.settings.button_text }}</span>
             </a>
         </div>
-    {% endif %}
+    {% endif %}     
         </div>
         <div class="col-60 shape--container col-md-25">
             {% if section.settings.drop_image != blank %}
-            <img class="drop-image" src="{{ section.settings.drop_image | img_url: '300x' }}">
+            <img class="drop-image img-parallax" data-speed="2" src="{{ section.settings.drop_image | img_url: '300x' }}">
             {% endif %}
             {% if section.settings.bg_image != blank %}
-                <img data-speed="2" class="shape--bg-image-right" src="{{ section.settings.bg_image | img_url: '500x' }}">
-                <!-- <div class=" shape--bg-image-right" style="background-image: url({{ section.settings.bg_image | img_url: '500x' }});"> -->
-
-                <!-- </div> -->
+                <img class="shape--bg-image-right img-parallax" data-speed="2" src="{{ section.settings.bg_image | img_url: '500x' }}">
             {% endif %}
             <div class="image-container">
                 {% if section.settings.image != blank %}
@@ -80,8 +83,8 @@
           },
           {
           "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
+          "value": "fade-in",
+          "label": "fade in"
           },
           {
           "group": "FADE",
@@ -203,8 +206,8 @@
           },
           {
           "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
+          "value": "fade-in",
+          "label": "fade in"
           },
           {
           "group": "FADE",
@@ -336,8 +339,8 @@
           },
           {
           "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
+          "value": "fade-in",
+          "label": "fade in"
           },
           {
           "group": "FADE",
@@ -462,7 +465,7 @@
   }
 ],
   "presets": [
-    {
+    { 
       "name": "Text with image Right",
       "category": "Image"
     }

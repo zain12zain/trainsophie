@@ -1,0 +1,185 @@
+<div class="how-it-works container-fluid">
+    <div class="row how-it-work-header">
+        <div class="col-60 text-center">
+            {% if section.settings.title != blank %}
+            <h1 class="section-title" data-aos="{{section.settings.title_animation}}" data-aos-duration="2000">{{ section.settings.title }}</h1>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row work-slide-container">
+        {% for block in section.blocks %}
+        {% assign count = forloop.index %}
+        {% assign even = count | modulo: 2 %}
+        <div class="col-60 col-md-12">
+        <div class="work-slide {% if even == 0 %}desktop-space{% endif %}">
+            <h2 data-aos="{{section.settings.title_animation}}" data-aos-duration="2000">0{{forloop.index}}</h2>
+            {{block.settings.text}}
+        </div>
+      </div>
+        {% endfor %}
+        <div class="col-60 text-center">
+          {% if section.settings.button_text != blank and section.settings.button_url != blank %}
+          <a class="find-program" href="{{section.settings.button_url}}"><span>{{section.settings.button_text}}</span></a>
+          {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "How it works Section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "title_animation",
+      "label": "Animation",
+      "options": [
+          {
+          "group": "FADE",
+          "value": "fade-up",
+          "label": "fade up"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-in",
+          "label": "fade in"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-right",
+          "label": "fade right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-left",
+          "label": "fade left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-right",
+          "label": "fade up right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-up-left",
+          "label": "fade up left"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-right",
+          "label": "fade down right"
+          },
+          {
+          "group": "FADE",
+          "value": "fade-down-left",
+          "label": "fade down left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-left",
+          "label": "flip left"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-right",
+          "label": "flip right"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-up",
+          "label": "flip up"
+          },
+          {
+          "group": "FLIP",
+          "value": "flip-down",
+          "label": "flip down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in",
+          "label": "zoom in"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-up",
+          "label": "zoom in up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-down",
+          "label": "zoom in down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-left",
+          "label": "zoom in left"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-in-right",
+          "label": "zoom in right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out",
+          "label": "zoom out"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-up",
+          "label": "zoom out up"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-down",
+          "label": "zoom out down"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-right",
+          "label": "zoom out right"
+          },
+          {
+          "group": "ZOOM",
+          "value": "zoom-out-left",
+          "label": "zoom out left"
+          }
+      ],
+      "default": "flip-down"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "how_work_point",
+      "name": "How it Work Point",
+      "settings": [
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Point"
+            }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How it works Section",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

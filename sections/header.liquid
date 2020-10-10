@@ -126,19 +126,22 @@
           {% if shop.customer_accounts_enabled %}
             {% if customer %}
               <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
-                {% include 'icon-login' %}
+                {% comment %}{% include 'icon-login' %} {% endcomment %}
+                <img src="{{ 'profile.png' | asset_url }}">
                 <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
               </a>
             {% else %}
               <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
-                {% include 'icon-login' %}
+                {% comment %}{% include 'icon-login' %} {% endcomment %}
+                <img src="{{ 'profile.png' | asset_url }}">
                 <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
               </a>
             {% endif %}
           {% endif %}
 
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
-            {% include 'icon-cart' %}
+          {% comment %}{% include 'icon-cart' %} {% endcomment %}
+          <img src="{{ 'bag--.png' | asset_url }}">
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
             <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
               <span data-cart-count>{{ cart.item_count }}</span>
@@ -151,6 +154,24 @@
     </div>
 
     <nav class="mobile-nav-wrapper medium-up--hide" role="navigation">
+      <div class="row mt-5">
+        <div class="col-30">
+              {% if section.settings.logo %}
+              <a href="/">
+                    <img class="mobile-nav-logo" src="{{ section.settings.logo | img_url: '500x' }}" alt="logo"
+                         style="max-width: {{ section.settings.logo_max_width }}px;">
+                </a>
+              {% endif %}
+              </h1>
+        </div>
+        <div class="col-30 text-right">
+          {% unless linklists[section.settings.main_linklist] == blank %}
+          <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+            {% include 'icon-close' %}
+          </button>
+        {% endunless %}
+        </div>
+      </div>
       <ul id="MobileNav" class="mobile-nav">
         {% for link in linklists[section.settings.main_linklist].links %}
           {%- assign outerLoopIndex = forloop.index -%}
@@ -243,6 +264,40 @@
           </li>
         {% endfor %}
       </ul>
+      <div class="menu-bottom">
+        <div class="row">
+          <div class="col-60">
+            <span class="mobile-menu-icons">
+              {% if section.settings.facebook_link != blank %}
+              <a href="{{ section.settings.facebook_link }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              {% endif %}
+              {% if section.settings.insta_link != blank %}
+              <a href="{{ section.settings.insta_link }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              {% endif %}
+              {% if section.settings.youtube_link != blank %}
+              <a href="{{ section.settings.youtube_link }}"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+              {% endif %}
+          </span>
+          </div>
+          <div class="col-60 text-center mobile-menu-link">
+            {%- assign menu__linklist = section.settings.link_list -%}
+            <ul>
+              {%- for link in linklists[menu__linklist].links -%}
+                <li>
+                  <a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
+                    {{ link.title | escape }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+            {% if section.settings.copyright_text != blank %}
+            <div class="menu-bottom-copyright">
+                <p>{{ section.settings.copyright_text }}</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -679,6 +734,35 @@
         "zh-TW": "文字"
       },
       "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Socials"
+    },
+    {
+        "type": "text",
+        "id": "facebook_link",
+        "label": "Facebook link"
+    },
+    {
+        "type": "text",
+        "id": "insta_link",
+        "label": "Instagram link"
+    },
+    {
+        "type": "text",
+        "id": "youtube_link",
+        "label": "Youtube link"
+    },
+    {
+      "type": "link_list",
+      "id": "link_list",
+      "label": "Mobile Bottom Menu"
+    },
+    {
+        "type": "text",
+        "id": "copyright_text",
+        "label": "Copyright Text"
     }
   ]
 }

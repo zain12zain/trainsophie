@@ -1,11 +1,13 @@
-{% if section.settings.bg_image_1 != blank %}
-<div class="position-relative">
-<img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="img-parallax1 img-parallaxx">
-{% endif %}
 {% paginate blog.articles by 12 %}
+{% if section.settings.bg_image_2 != blank %}
+  <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="img-parallax2 img-parallax">
+{% endif %}
 <div class="container">
+  {% if section.settings.bg_image_1 != blank %}
+<img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="img-parallax1 img-parallax">
+{% endif %}
   <header class="section-header blog-header text-center">
-    <h1>{{ page_title }}</h1>
+    <h2 class="page-heading">{{ page_title }}</h2>
     {% comment %}
     {% if blog.tags.size > 0 %}
       <div class="blog-filter">
@@ -21,11 +23,13 @@
         </div>
       </div>
     {% endif %}
-    {% endcomment %}
+    {% endcomment %} 
+    <div class="mb-5">
     <a class="tags_link" href="/pages/blog">All</a>
     {% for link in linklists.blogs.links %}
     <a class="tags_link {% if link.current %} active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
     {% endfor %}
+  </div>
   </header>
 </div>
 {% assign count = 0 %}
@@ -82,7 +86,7 @@
               <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
             {% endif %}
 
-            <div class="rte article__grid-excerpt">
+            <div class="rte article__grid-excerpt info-holder">
               {% if article.excerpt.size > 0 %}
                 {{ article.excerpt }}
               {% else %}
@@ -118,14 +122,6 @@
               {% endif %}
             </ul>
           </div>
-          {% if section.settings.bg_image_2 != blank %}
-          {% if count == 1 %}
-          <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="d-block d-md-none img-parallax2 img-parallax">
-          {% endif %}
-            {% if count == 3 %}
-            <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="d-none d-md-block img-parallax2 img-parallax">
-            {% endif %}
-        {% endif %}
           </div>
         </li>
       {% endfor %}
@@ -225,9 +221,6 @@
 {%- endif -%}
 
 {% endpaginate %}
-{% if section.settings.bg_image_1 != blank %}
-</div>
-{% endif %}
 
 
 {% schema %}
@@ -398,8 +391,8 @@
           },
           {
           "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
+          "value": "fade-in",
+          "label": "fade in"
           },
           {
           "group": "FADE",
@@ -502,7 +495,7 @@
           "label": "zoom out left"
           }
       ],
-      "default": "fade-up"
+      "default": "fade-in"
     },
     {
       "type": "select",
@@ -516,8 +509,8 @@
           },
           {
           "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
+          "value": "fade-in",
+          "label": "fade in"
           },
           {
           "group": "FADE",
@@ -620,7 +613,7 @@
           "label": "zoom out left"
           }
       ],
-      "default": "fade-up"
+      "default": "fade-in"
     }
   ]
 }

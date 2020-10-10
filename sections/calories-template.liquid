@@ -1,0 +1,607 @@
+<section class="calories-calculator">
+    {% if section.settings.bg_image_1 != blank %}
+    <img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="calories-background img-parallax">
+    {% endif %}
+    <section class="row w">
+        <div class="col-60 text-center">
+            {% if section.settings.title != blank %}
+            <h2 class="page-heading">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.image != blank %}
+            <img class="{% if section.settings.desktop_image != blank %} d-block d-md-none {% endif %} w-100" data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" src="{{ section.settings.image | img_url: '2000x' }}">
+            {% endif %}
+            {% if section.settings.desktop_image != blank %}
+            <div class="d-none d-md-block">
+                <img class="w-100" data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" src="{{ section.settings.desktop_image | img_url: '2000x' }}">
+            </div>
+            {% endif %}
+        </div>
+    </section>
+    <section class="container">
+        <div class="row">
+            {% if section.settings.text != blank %}
+            <div class="col-50 col-md-30 offset-md-30 mx-auto text-center list-holder calculate-featured-text">
+              <p>{{ section.settings.text }}</p>
+            </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-50 col-md-30 offset-md-30 mx-auto text-center calories-form-container">
+              <div class="switcher">
+                <a href="#" class="unit-swticher metric">Metric</a>
+                <a href="#" class="unit-swticher imperial">Imperial</a>
+              </div>
+                  {% form 'contact', class:"text-center calories-imp-frm metricfrm" %}
+                  <div class="row no-gutters">
+                    <div class="col-60 d-flex">
+                     <div class="gender-question input-group mb-3">
+                       <label for="gendermale">Male</label><input type="radio" name="contact[Gender]" id="gendermale" class="" value="male">
+                     </div>
+                     <div class="gender-question input-group mb-3">
+                       <label for="genderfemale">Female</label><input type="radio" checked name="contact[Gender]" id="genderfemale" class="" value="female">
+                     </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row position-relative">
+                     <label for="age" class="position-absolute">Age</label>
+                     <div class="col-60"><span class="input--hover"><input placeholder="" type="text" class="form-control" name="contact[Age]" id="age"></span></div>
+                    </div>
+                 </div>
+                   <div class="form-group">
+                     <div class="row position-relative">
+                      <label for="weight" class="position-absolute">Weight (KGs)</label>
+                      <div class="col-60"><span class="input--hover"><input placeholder="" type="text" class="form-control" name="contact[Weight]" id="weight"></span></div>
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <div class="row position-relative">
+                      <label for="height" class="position-absolute">Height (CMs)</label>
+                      <div class="col-60"><span class="input--hover"><input type="text" placeholder="" class="form-control" name="contact[Height]" id="height"></span></div>
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <div class="row position-relative">
+                      <label for="activity" class="position-absolute select">Activity Level</label>
+                      <div class="col-60 dropdown-select position-relative">
+                        <select name="contact[Activity]" id="activity" class="form-control">
+                          <option selected="selected" disabled value="">Select Activity</option>
+                          <option value="1.2">Not active (desk job with little to no exercise)</option>
+                          <option value="1.4">Sedentary (desk job with regular exercise)</option>
+                          <option value="1.5">Light activity (retail type job with regular exercise)</option>
+                          <option value="1.7">Moderate activity (active job eg personal trainer with regular exercise)</option>
+                          <option value="1.9">Extremely active (labour job with regular exercise)</option>
+                        </select>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="6.146" height="3.457" viewBox="0 0 6.146 3.457"><defs><style>.a{fill:#484848;}</style></defs><g transform="translate(0 -63.953)"><path class="a" d="M6.032,64.067a.369.369,0,0,0-.27-.114H.384a.369.369,0,0,0-.27.114.377.377,0,0,0,0,.54L2.8,67.3a.377.377,0,0,0,.54,0l2.689-2.689a.377.377,0,0,0,0-.54Z"/></g></svg>
+                      </div>
+                     </div>
+                   </div>
+                   <div class="form-group">
+                    <div class="row position-relative">
+                     <label for="goal" class="position-absolute select">Goal</label>
+                     <div class="col-60 dropdown-select position-relative">
+                       <select name="goal" id="goal" class="form-control">
+                         <option selected="selected" disabled value="">Select Goal</option>
+                         <option value="deficit">Deficit (weight loss)</option>
+                         <option value="maintenance">Maintenance (maintain weight)</option>
+                         <option value="surplus">Surplus (gain weight)</option>
+                       </select>
+                       <svg xmlns="http://www.w3.org/2000/svg" width="6.146" height="3.457" viewBox="0 0 6.146 3.457"><defs><style>.a{fill:#484848;}</style></defs><g transform="translate(0 -63.953)"><path class="a" d="M6.032,64.067a.369.369,0,0,0-.27-.114H.384a.369.369,0,0,0-.27.114.377.377,0,0,0,0,.54L2.8,67.3a.377.377,0,0,0,.54,0l2.689-2.689a.377.377,0,0,0,0-.54Z"/></g></svg>
+                     </div>
+                    </div>
+                  </div>
+                   <div class="custom-hr"></div>
+                   <div class="form-group">
+                    <div class="row position-relative">
+                     <label for="customername" class="position-absolute">Name</label>
+                     <div class="col-60">
+                      <span class="input--hover">
+                       <input type="text" placeholder="" name="contact[Name]" id="customername" class="form-control">
+                      </span>
+                     </div>
+                    </div>
+                 </div>
+                   <div class="form-group">
+                     <div class="row position-relative">
+                      <label for="customemail" class="position-absolute">Email</label>
+                      <div class="col-60">
+                        <span class="input--hover">
+                        <input type="text" name="contact[email]" placeholder="" id="customemail" class="form-control">
+                      </span>
+                      </div>
+                     </div>
+                  </div>
+                   <input type="hidden" name="contact[BMR]" class="results-bmr">
+                   <input type="hidden" name="contact[Maintainance Calories]" class="results-mc">
+                   <input type="hidden" name="contact[Deficit Calories]" class="results-dc">
+                   <input type="hidden" name="contact[Surplus Calories]" class="results-sc">
+                     <!-- Sign up button -->
+                     <button class="find-program border-0" type="submit"><span>EMAIL ME MY RESULT</span></button>
+                     <div class="results text-left">
+                      <div class="col-60 d-none calc-results show-bmr">
+                        <strong>BMR</strong><span class="results-bmr"></span>
+                      </div>
+                      <div class="col-60 d-none calc-results show-maintenance">
+                        <strong>Maintainance Calories</strong><span class="results-mc"></span>
+                      </div>
+                      <div class="col-60 d-none calc-results show-deficit">
+                        <strong>Deficit Calories</strong><span class="results-dc"></span>
+                      </div>
+                      <div class="col-60 d-none calc-results show-surplus">
+                        <strong>Surplus Calories</strong><span class="results-sc"></span>
+                      </div>
+                    </div>
+                     {% endform %}
+                     {% form 'contact', class:"text-center calories-imp-frm imperialfrm d-none" %}
+                    <div class="row no-gutters">
+                      <div class="col-60 d-flex">
+                       <div class="gender-question input-group mb-3">
+                         <label for="gendermale">Male</label><input type="radio" name="gender" id="gendermale" class="" value="male">
+                       </div>
+                       <div class="gender-question input-group mb-3">
+                         <label for="genderfemale">Female</label><input type="radio" checked name="gender" id="genderfemale" class="" value="female">
+                       </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row position-relative">
+                       <label for="age" class="position-absolute">Age</label>
+                       <div class="col-60"><input type="text" class="form-control" name="age" id="age"></div>
+                      </div>
+                   </div>
+                     <div class="form-group">
+                       <div class="row position-relative">
+                        <label for="weight" class="position-absolute">Weight (lbs)</label>
+                        <div class="col-60"><span class="input--hover"><input type="text" class="form-control" name="weight" id="weight"></span></div>
+                       </div>
+                     </div>
+                     <div class="form-group">
+                       <div class="row position-relative">
+                        <label for="height" class="position-absolute">Height (inches)</label>
+                        <div class="col-60"><span class="input--hover"><input type="text" class="form-control" name="height" id="height"></span></div>
+                       </div>
+                     </div>
+                     <div class="form-group">
+                       <div class="row position-relative">
+                        <label for="activity" class="position-absolute select">Activity Level</label>
+                        <div class="col-60 dropdown-select position-relative">
+                          <select name="activity" id="activity" class="form-control">
+                            <option selected="selected" disabled value="">Select Activity</option>
+                            <option value="1.2">Not active (desk job with little to no exercise)</option>
+                            <option value="1.4">Sedentary (desk job with regular exercise)</option>
+                            <option value="1.5">Light activity (retail type job with regular exercise)</option>
+                            <option value="1.7">Moderate activity (active job eg personal trainer with regular exercise)</option>
+                            <option value="1.9">Extremely active (labour job with regular exercise)</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6.146" height="3.457" viewBox="0 0 6.146 3.457"><defs><style>.a{fill:#484848;}</style></defs><g transform="translate(0 -63.953)"><path class="a" d="M6.032,64.067a.369.369,0,0,0-.27-.114H.384a.369.369,0,0,0-.27.114.377.377,0,0,0,0,.54L2.8,67.3a.377.377,0,0,0,.54,0l2.689-2.689a.377.377,0,0,0,0-.54Z"/></g></svg>
+                        </div>
+                       </div>
+                     </div>
+                     <div class="form-group">
+                      <div class="row position-relative">
+                       <label for="goal2" class="position-absolute select">Goal</label>
+                       <div class="col-60 dropdown-select position-relative">
+                         <select name="goal2" id="goal2" class="form-control">
+                          <option selected="selected" disabled value="">Select Goal</option>
+                           <option value="deficit">Deficit (weight loss)</option>
+                           <option value="maintenance">Maintenance (maintain weight)</option>
+                           <option value="surplus">Surplus (gain weight)</option>
+                         </select>
+                         <svg xmlns="http://www.w3.org/2000/svg" width="6.146" height="3.457" viewBox="0 0 6.146 3.457"><defs><style>.a{fill:#484848;}</style></defs><g transform="translate(0 -63.953)"><path class="a" d="M6.032,64.067a.369.369,0,0,0-.27-.114H.384a.369.369,0,0,0-.27.114.377.377,0,0,0,0,.54L2.8,67.3a.377.377,0,0,0,.54,0l2.689-2.689a.377.377,0,0,0,0-.54Z"/></g></svg>
+                       </div>
+                      </div>
+                    </div> 
+                     <div class="custom-hr"></div>
+                     <div class="form-group">
+                      <div class="row position-relative">
+                       <label for="customername" class="position-absolute">Name</label>
+                       <div class="col-60">
+                        <span class="input--hover">
+                         <input type="text" name="contact[Name]" id="customername" class="form-control">
+                        </span>
+                       </div>
+                      </div>
+                   </div>
+                     <div class="form-group">
+                      <div class="row position-relative">
+                       <label for="customemail" class="position-absolute">Email</label>
+                       <div class="col-60">
+                        <span class="input--hover">
+                         <input type="text" name="contact[Email]" id="customemail" class="form-control">
+                         </span>
+                       </div>
+                      </div>
+                   </div>
+                      <input type="hidden" name="contact[BMR]" class="results-bmri">
+                      <input type="hidden" name="contact[Maintainance Calories]" class="results-mci">
+                      <input type="hidden" name="contact[Deficit Calories]" class="results-dci">
+                      <input type="hidden" name="contact[Surplus Calories]" class="results-sci">
+                       <!-- Sign up button -->
+                       <button class="find-program border-0" type="submit"><span>EMAIL ME MY RESULT</span></button>
+                       <div class="results text-left">
+                        <div class="col-60 d-none calc-results show-bmr">
+                          <strong>BMR</strong><span class="results-bmri"></span>
+                        </div>
+                        <div class="col-60 d-none calc-results show-maintenance">
+                          <strong>Maintainance Calories</strong><span class="results-mci"></span>
+                        </div>
+                        <div class="col-60 d-none calc-results show-deficit">
+                          <strong>Deficit Calories</strong><span class="results-dci"></span>
+                        </div>
+                        <div class="col-60 d-none calc-results show-surplus">
+                          <strong>Surplus Calories</strong><span class="results-sci"></span>
+                        </div>
+                      </div>
+                       {% endform %}
+                </div>
+            </div>
+        </div>
+    </section>
+  </section>
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('.metricfrm').on('submit',function(e){
+      var form_data = $(this).serializeArray();
+      console.log(form_data);
+      var weight = 9.99 * form_data[4].value;
+      var height = 6.25 * form_data[5].value;
+      var age = 5 * form_data[3].value;
+      var bmr = weight + height - age;
+      if(form_data[2].value == 'male') {
+        bmr += 5;
+      } else if (form_data[2].value == 'female') {
+        bmr -= 161;
+      }
+      var mc = (bmr*form_data[6].value).toFixed(2);
+      var dc = (mc*0.8).toFixed(2);
+      if(form_data[2].value == 'male') {
+      var sc = (mc*1.3).toFixed(2);
+      } else if (form_data[2].value == 'female') {
+      var sc = (mc*1.1).toFixed(2);
+      }
+      $('.calc-results').addClass('d-none');
+      var show_field = '.show-'+$('#goal').val();
+      $('.show-bmr').removeClass('d-none');
+      $(show_field).removeClass('d-none');
+      $('input.results-bmr').val(bmr.toFixed(2));
+      $('input.results-mc').val(mc);
+      $('input.results-dc').val(dc);
+      $('input.results-sc').val(sc);
+      $('span.results-bmr').text(bmr.toFixed(2));
+      $('span.results-mc').text(mc);
+      $('span.results-dc').text(dc);
+      $('span.results-sc').text(sc);
+      setTimeout(function(){
+        return true;
+      },3500)
+    })
+    $('.imperialfrm').on('submit',function(){
+      var form_data = $(this).serializeArray();
+      var weight = 4.536 * form_data[4].value;
+      var height = 15.88 * form_data[5].value;
+      var age = 5 * form_data[3].value;
+      var bmr = weight + height - age;
+      if(form_data[2].value == 'male') {
+        bmr += 5;
+      } else if (form_data[2].value == 'female') {
+        bmr -= 161;
+      }
+      var mc = (bmr*form_data[6].value).toFixed(2);
+      var dc = (mc*0.8).toFixed(2);
+      if(form_data[2].value == 'male') {
+      var sc = (mc*1.3).toFixed(2);
+      } else if (form_data[2].value == 'female') {
+      var sc = (mc*1.1).toFixed(2);
+      }
+      $('.calc-results').addClass('d-none');
+      var show_field = '.show-'+$('#goal2').val();
+      $('.show-bmr').removeClass('d-none');
+      $(show_field).removeClass('d-none');
+      $('span.results-bmri').text(bmr.toFixed(2));
+      $('span.results-mci').text(mc);
+      $('span.results-dci').text(dc);
+      $('span.results-sci').text(sc);
+      $('input.results-bmri').val(bmr.toFixed(2));
+      $('input.results-mci').val(mc);
+      $('input.results-dci').val(dc);
+      $('input.results-sci').val(sc);
+      setTimeout(function(){
+        return true;
+      },3500)
+    })
+    $('.unit-swticher').click(function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      if($(this).hasClass('metric')) {
+        $('.metricfrm').removeClass('d-none');
+        $('.imperialfrm').addClass('d-none');
+      } else {
+        $('.metricfrm').addClass('d-none');
+        $('.imperialfrm').removeClass('d-none');
+      }
+    })
+    $('.calories-calculator input[type="text"]').focus(function(){
+      $(this).closest('.row').addClass("active");
+    }).blur(function(){
+      if( $(this).val().length === 0 ) {$(this).closest('.row').removeClass("active");
+      $(this).closest('.row').removeClass('active-blur');
+      } else {
+        $(this).closest('.row').addClass("active-blur");
+      $(this).closest('.row').removeClass("active");
+      }
+    })
+  })
+
+  
+  </script>
+{% schema %}
+{
+  "name": "Calories Calculator",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "bg_image_1",
+        "label": "Background Image 1"
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+  },
+    {
+    "type": "select",
+    "id": "image_animation",
+    "label": "Image Animation",
+    "options": [
+        {
+        "group": "FADE",
+        "value": "fade-up",
+        "label": "fade up"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-in",
+        "label": "fade in"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-right",
+        "label": "fade right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-left",
+        "label": "fade left"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-up-right",
+        "label": "fade up right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-up-left",
+        "label": "fade up left"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-down-right",
+        "label": "fade down right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-down-left",
+        "label": "fade down left"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-left",
+        "label": "flip left"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-right",
+        "label": "flip right"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-up",
+        "label": "flip up"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-down",
+        "label": "flip down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in",
+        "label": "zoom in"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-up",
+        "label": "zoom in up"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-down",
+        "label": "zoom in down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-left",
+        "label": "zoom in left"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-right",
+        "label": "zoom in right"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out",
+        "label": "zoom out"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-up",
+        "label": "zoom out up"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-down",
+        "label": "zoom out down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-right",
+        "label": "zoom out right"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-left",
+        "label": "zoom out left"
+        }
+    ],
+    "default": "flip-down"
+    },
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Title"
+    },
+    {
+    "type": "select",
+    "id": "title_animation",
+    "label": "Title Animation",
+    "options": [
+        {
+        "group": "FADE",
+        "value": "fade-up",
+        "label": "fade up"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-in",
+        "label": "fade in"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-right",
+        "label": "fade right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-left",
+        "label": "fade left"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-up-right",
+        "label": "fade up right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-up-left",
+        "label": "fade up left"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-down-right",
+        "label": "fade down right"
+        },
+        {
+        "group": "FADE",
+        "value": "fade-down-left",
+        "label": "fade down left"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-left",
+        "label": "flip left"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-right",
+        "label": "flip right"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-up",
+        "label": "flip up"
+        },
+        {
+        "group": "FLIP",
+        "value": "flip-down",
+        "label": "flip down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in",
+        "label": "zoom in"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-up",
+        "label": "zoom in up"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-down",
+        "label": "zoom in down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-left",
+        "label": "zoom in left"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-in-right",
+        "label": "zoom in right"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out",
+        "label": "zoom out"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-up",
+        "label": "zoom out up"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-down",
+        "label": "zoom out down"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-right",
+        "label": "zoom out right"
+        },
+        {
+        "group": "ZOOM",
+        "value": "zoom-out-left",
+        "label": "zoom out left"
+        }
+    ],
+    "default": "flip-down"
+    },
+    {
+        "type": "text",
+        "id": "text",
+        "label": "Text"
+    }
+  ]
+}
+{% endschema %}

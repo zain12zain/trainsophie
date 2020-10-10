@@ -1,12 +1,15 @@
 {% if section.settings.bg_image_1 != blank %}
 <div class="position-relative">
-<img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="img-parallax1 img-parallaxx">
+<img src="{{ section.settings.bg_image_1 | img_url: '400x' }}" data-speed="2" class="img-parallax1 img-parallax">
 {% endif %}
 <div class="container">
+  {% if section.settings.bg_image_2 != blank %}
+    <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="img-parallax2 img-parallax">
+  {% endif %}
     <ul class="row">
       <div class="col-60">
       <header class="section-header blog-header text-center">
-        <h1>BLOGS</h1>
+        <h2 class="page-heading">BLOGS</h2>
       <div class="mb-5">
           {% assign count = 0 %}
           <a class="tags_link active" href="/pages/blog">All</a>
@@ -62,7 +65,7 @@
                   {{ article.title | escape }}
                 </h2>
               </a>
-              <div class="rte article__grid-excerpt">
+              <div class="rte article__grid-excerpt info-holder">
                 {% if article.excerpt.size > 0 %}
                   {{ article.excerpt }}
                 {% else %}
@@ -98,14 +101,6 @@
                     {% endif %}
                   </ul>
                   </div>
-                  {% if section.settings.bg_image_2 != blank %}
-                    {% if count == 1 %}
-                    <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="d-block d-md-none img-parallax2 img-parallax">
-                    {% endif %}
-                      {% if count == 3 %}
-                      <img src="{{ section.settings.bg_image_2 | img_url: '400x' }}" data-speed="2" class="d-none d-md-block img-parallax2 img-parallax">
-                      {% endif %}
-                  {% endif %}
               </div>
               </div>
             </li>
@@ -192,8 +187,8 @@
               },
               {
               "group": "FADE",
-              "value": "fade-down",
-              "label": "fade down"
+              "value": "fade-in",
+              "label": "fade in"
               },
               {
               "group": "FADE",
@@ -296,7 +291,7 @@
               "label": "zoom out left"
               }
           ],
-          "default": "fade-up"
+          "default": "fade-in"
         },
         {
           "type": "select",
@@ -310,8 +305,8 @@
               },
               {
               "group": "FADE",
-              "value": "fade-down",
-              "label": "fade down"
+              "value": "fade-in",
+              "label": "fade in"
               },
               {
               "group": "FADE",
@@ -414,7 +409,7 @@
               "label": "zoom out left"
               }
           ],
-          "default": "fade-up"
+          "default": "fade-in"
         }
       ]
     }

@@ -1,22 +1,24 @@
 <section class="cut-tone-banner">
     <div class="row no-gutters">
         <div class="col-md-60 tone-img-block">
-            <img src="{{ 'Soph-2x.png' | asset_url }}" class="img-fluid" alt="banner-img">
+            {% if page.metafields.banner_image.banner_image != blank %}
+            <img class="{% if page.metafields.desktop_image.desktop_image != blank %} d-block d-md-none {% endif %} w-100" data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" src="{{ page.metafields.banner_image.banner_image }}">
+            {% endif %}
+            {% if page.metafields.desktop_image.desktop_image != blank %}
+            <div class="d-none d-md-block">
+                <img class="w-100" data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" src="{{ page.metafields.desktop_image.desktop_image }}">
+            </div>
+            {% endif %}
         </div>
     </div>
     <div class="container">
         <div class="row no-gutters">
-            <div class="col-md-60 d-flex list-holder">
+            <div class="col-md-60 d-flex list-holder main__points">
                 <ul class="list-unstyled">
-                    <h2 class="page-heading">CUT & TONE</h2>
-                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Choose 4 or 5 training days</li>
-                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">4 week mesocycles (training blocks) updated based on your progress</li>
-                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards</li>
-                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Progressively increasing volume and reps mesocycle to mesocycle</li>
-                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Progressively increasing volume and reps mesocycle to mesocycle</li>
-                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Cardio programmed from mesocycle 2 onwards</li>
-                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">Get strong and build lean muscle</li>
-                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">This program is gym based only</li>
+                    <h2 class="page-heading desktop-center" data-aos="{{section.settings.title_animation}}" data-aos-duration="2000">{{page.metafields.cut_tone.heading}}</h2>
+                    {% for item in page.metafields.cut_tone.list_item %}
+                        <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">{{ item }}</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -25,314 +27,711 @@
 <section class="nutrition-block">
     <div class="container">
         <div class="row">
+            <div class="col-60">
+                {% if page.metafields.nutrition_title.nutrition_title != blank %}
+                <h2 class="page-heading nutrition-main-title" data-aos="{{section.settings.title_animation}}" data-aos-duration="2000">{{page.metafields.nutrition_title.nutrition_title}}</h2>
+                {% endif %}
+            </div>
             <div class="col-md-30 info-block d-flex">
                 <div class="info-holder">
-                    <h2 class="page-heading">CUT & TONE</h2>
-                    <p>Cut & Tone nutrition goal is for those wanting to lose fat and tone up! You'll receive a 7 day meal plan with an optional 8th day refeed. Choose this goal alongside any training program - YES you can build muscle whilst in a calorie deficit, however it’s easier from maintenance or surplus calories.</p>
+                    {% if page.metafields.nutrition_left_title.nutrition_left_title != blank %}
+                    <h2 class="page-heading" data-aos="{{section.settings.title_animation}}" data-aos-duration="2000">{{page.metafields.nutrition_left_title.nutrition_left_title}}</h2>
+                    {% endif %}
+                    {% if page.metafields.nutrition_text.nutrition_text != blank %}
+                    <p>{{page.metafields.nutrition_text.nutrition_text}}</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-30 nutrition-img-block">
                 <div class="img-holder text-center">
-                    <h2 class="page-heading">Nutrition Options</h2>
+                    {% if page.metafields.nutrition_image.nutrition_image != blank %}
                     <div class="img-wrap">
-                        <img src="{{ 'ella-olsson-2x.png' | asset_url }}" class="img-fluid pink-block" alt="img2">
+                        <img data-aos="{{section.settings.all_image_animation }}" data-aos-duration="2000" src="{{page.metafields.nutrition_image.nutrition_image}}" class="img-fluid pink-block" alt="img2">
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
-    <div data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" class="round-img"><img src="{{ 'welcome-img.png' | asset_url }}" alt="welcome-img"></div>
+    {% if page.metafields.nutrition_mian_image.nutrition_image != blank %}
+    <div data-aos="{{section.settings.image_animation}}" data-aos-duration="2000" class="round-img">
+        <img src="{{page.metafields.nutrition_mian_image.nutrition_image}}" alt="welcome-img">
+    </div>
+    {% endif %}
 </section>
 <section class="membership-plan">
     <div class="container">
         <div class="row">
             <div class="col-60 membership-title mb-5">
-                <h2 class="page-heading text-center">Membership plan</h2>
+                {% if page.metafields.membership_title.membership_title != blank %}
+                    <h2 data-aos="{{section.settings.title_animation}}" data-aos-duration="2000" class="page-heading text-center">{{page.metafields.membership_title.membership_title}}</h2>
+                {% endif %}
                 <div class="tab">
-                    <button class="tablinks monthly active" onclick="openCity(event, 'month')">MONTHLY</button>
-                    <button class="tablinks quarterly" onclick="openCity(event, 'quarter')">QUARTERLY</button>
-                  </div>
-                  
+                    {% if page.metafields.monthly_title.monthly_title != blank %}
+                    <button class="tablinks monthly active" onclick="openCity(event, 'month')">{{page.metafields.monthly_title.monthly_title}}</button>
+                    {% endif %}
+                    {% if page.metafields.quarterly_title.quarterly_title != blank %}
+                    <button class="tablinks quarterly" onclick="openCity(event, 'quarter')">{{page.metafields.quarterly_title.quarterly_title}}</button>
+                    {% endif %}
+                </div>
+                  {% if page.metafields.monthly_title.monthly_title != blank %}
                   <div id="month" class="tabcontent">
                       <div class="plan-header">
-                    <span class="dollar-s">$</span><span class="fifty-2"> 52</span> <span class="dollar-month">/month</span>
-                    </div>
-                    <div class="d-flex list-holder">
-                        <ul class="list-unstyled pt-5">
-                            <li>Choose 4 or 5 training days</li>
-                            <li>4 week mesocycles (training blocks) updated based on your progress</li>
-                            <li>Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards</li>
-                            <li>Progressively increasing volume and reps mesocycle to mesocycle</li>
-                            <li>Progressively increasing volume and reps mesocycle to mesocycle</li>
-                            <li>Cardio programmed from mesocycle 2 onwards</li>
-                            <li>Get strong and build lean muscle</li>
-                            <li>This program is gym based only</li>
-                        </ul>
-                    </div>
-                    <a class="find-program" href="#"><span>transform yourself</span></a>
-                  </div>
-                  
-                  <div id="quarter" class="tabcontent" style="display: none;">
-                    <div class="plan-header">
-                        <span class="dollar-s">$</span><span class="fifty-2"> 52</span> <span class="dollar-month">/month</span>
+                        {{page.metafields.tab_heding_1.tab_heding_1}}
                         </div>
                         <div class="d-flex list-holder">
-                            <ul class="list-unstyled pt-5">
-                                <li>Choose 4 or 5 training days</li>
-                                <li>4 week mesocycles (training blocks) updated based on your progress</li>
-                                <li>Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards</li>
-                                <li>Progressively increasing volume and reps mesocycle to mesocycle</li>
-                                <li>Progressively increasing volume and reps mesocycle to mesocycle</li>
-                                <li>Cardio programmed from mesocycle 2 onwards</li>
-                                <li>Get strong and build lean muscle</li>
-                                <li>This program is gym based only</li>
+                            <ul class="list-unstyled-bottom pt-2"> 
+                            {% for item in page.metafields.tab_body_lists_1.tab_body_lists_1 %}
+                                {% if page.metafields.tab_body_lists_1.tab_body_lists_1 != blank %}
+                                    <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">{{item}}</li>
+                                {% endif %}
+                            {% endfor %}
                             </ul>
                         </div>
-                        <a class="find-program" href="#"><span>yourself</span></a>
+                        {% if page.metafields.tab_button__link_1.tab_button__link_1 != blank and page.metafields.tab_button_1.tab_button_1 != blank %}
+                            <a class="find-program" href="{{page.metafields.tab_button__link_1.tab_button__link_1}}"><span>{{page.metafields.tab_button_1.tab_button_1}}</span></a>
+                        {% endif %}
+                  </div>
+                  {% endif %}
+                  {% if page.metafields.quarterly_title.quarterly_title != blank %}
+                  <div id="quarter" class="tabcontent" style="display: none;">
+                    <div class="plan-header">
+                        {{page.metafields.tab_heding_2.tab_heding_2}}
                     </div>
+                    <div class="d-flex list-holder">
+                        <ul class="list-unstyled-bottom pt-2">
+                        {% for item in page.metafields.tab_body_lists_2.tab_body_lists_2 %}
+                            {% if page.metafields.tab_body_lists_2.tab_body_lists_2 != blank %}
+                                <li data-aos="{{section.settings.list_animation}}" data-aos-duration="2000">{{ item }}</li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    {% if page.metafields.tab_button_2.tab_button_2 != blank and page.metafields.tab_button__link_2.tab_button__link_2 != blank %}
+                    <a class="find-program" href="{{page.metafields.tab_button__link_2.tab_button__link_2}}"><span>{{page.metafields.tab_button_2.tab_button_2}}</span></a>
+                    {% endif %}
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
 {% schema %}
 {
-  "name": "Cut & Ton",
+  "name": "Cut & Ton Section",
   "settings": [
     {
-      "type": "select",
-      "id": "list_animation",
-      "label": "List Animation",
-      "options": [
-          {
-          "group": "FADE",
-          "value": "fade-up",
-          "label": "fade up"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-right",
-          "label": "fade right"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-left",
-          "label": "fade left"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-up-right",
-          "label": "fade up right"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-up-left",
-          "label": "fade up left"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-down-right",
-          "label": "fade down right"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-down-left",
-          "label": "fade down left"
-          },
-          {
-          "group": "FLIP",
-          "value": "flip-left",
-          "label": "flip left"
-          },
-          {
-          "group": "FLIP",
-          "value": "flip-right",
-          "label": "flip right"
-          },
-          {
-          "group": "FLIP",
-          "value": "flip-up",
-          "label": "flip up"
-          },
-          {
-          "group": "FLIP",
-          "value": "flip-down",
-          "label": "flip down"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in",
-          "label": "zoom in"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in-up",
-          "label": "zoom in up"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in-down",
-          "label": "zoom in down"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in-left",
-          "label": "zoom in left"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in-right",
-          "label": "zoom in right"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out",
-          "label": "zoom out"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out-up",
-          "label": "zoom out up"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out-down",
-          "label": "zoom out down"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out-right",
-          "label": "zoom out right"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out-left",
-          "label": "zoom out left"
-          }
-      ],
-      "default": "fade-up"
+        "type": "select",
+        "id": "list_animation",
+        "label": "List Animation",
+        "options": [
+            {
+            "group": "FADE",
+            "value": "fade-up",
+            "label": "fade up"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-in",
+            "label": "fade in"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-right",
+            "label": "fade right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-left",
+            "label": "fade left"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-up-right",
+            "label": "fade up right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-up-left",
+            "label": "fade up left"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-down-right",
+            "label": "fade down right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-down-left",
+            "label": "fade down left"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-left",
+            "label": "flip left"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-right",
+            "label": "flip right"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-up",
+            "label": "flip up"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-down",
+            "label": "flip down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in",
+            "label": "zoom in"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-up",
+            "label": "zoom in up"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-down",
+            "label": "zoom in down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-left",
+            "label": "zoom in left"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-right",
+            "label": "zoom in right"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out",
+            "label": "zoom out"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-up",
+            "label": "zoom out up"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-down",
+            "label": "zoom out down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-right",
+            "label": "zoom out right"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-left",
+            "label": "zoom out left"
+            }
+        ],
+        "default": "fade-up"
     },
     {
-      "type": "select",
-      "id": "image_animation",
-      "label": "Image Animation",
-      "options": [
-          {
-          "group": "FADE",
-          "value": "fade-up",
-          "label": "fade up"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-right",
-          "label": "fade right"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-left",
-          "label": "fade left"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-up-right",
-          "label": "fade up right"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-up-left",
-          "label": "fade up left"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-down-right",
-          "label": "fade down right"
-          },
-          {
-          "group": "FADE",
-          "value": "fade-down-left",
-          "label": "fade down left"
-          },
-          {
-          "group": "FLIP",
-          "value": "flip-left",
-          "label": "flip left"
-          },
-          {
-          "group": "FLIP",
-          "value": "flip-right",
-          "label": "flip right"
-          },
-          {
-          "group": "FLIP",
-          "value": "flip-up",
-          "label": "flip up"
-          },
-          {
-          "group": "FLIP",
-          "value": "flip-down",
-          "label": "flip down"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in",
-          "label": "zoom in"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in-up",
-          "label": "zoom in up"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in-down",
-          "label": "zoom in down"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in-left",
-          "label": "zoom in left"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-in-right",
-          "label": "zoom in right"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out",
-          "label": "zoom out"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out-up",
-          "label": "zoom out up"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out-down",
-          "label": "zoom out down"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out-right",
-          "label": "zoom out right"
-          },
-          {
-          "group": "ZOOM",
-          "value": "zoom-out-left",
-          "label": "zoom out left"
-          }
-      ],
-      "default": "fade-up"
+        "type": "select",
+        "id": "image_animation",
+        "label": "Nutrition Image Animation",
+        "options": [
+            {
+            "group": "FADE",
+            "value": "fade-up",
+            "label": "fade up"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-in",
+            "label": "fade in"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-right",
+            "label": "fade right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-left",
+            "label": "fade left"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-up-right",
+            "label": "fade up right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-up-left",
+            "label": "fade up left"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-down-right",
+            "label": "fade down right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-down-left",
+            "label": "fade down left"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-left",
+            "label": "flip left"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-right",
+            "label": "flip right"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-up",
+            "label": "flip up"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-down",
+            "label": "flip down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in",
+            "label": "zoom in"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-up",
+            "label": "zoom in up"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-down",
+            "label": "zoom in down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-left",
+            "label": "zoom in left"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-right",
+            "label": "zoom in right"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out",
+            "label": "zoom out"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-up",
+            "label": "zoom out up"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-down",
+            "label": "zoom out down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-right",
+            "label": "zoom out right"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-left",
+            "label": "zoom out left"
+            }
+        ],
+        "default": "fade-up"
+    },
+    {
+        "type": "select",
+        "id": "all_image_animation",
+        "label": "All Images Animation",
+        "options": [
+            {
+            "group": "FADE",
+            "value": "fade-up",
+            "label": "fade up"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-in",
+            "label": "fade in"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-right",
+            "label": "fade right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-left",
+            "label": "fade left"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-up-right",
+            "label": "fade up right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-up-left",
+            "label": "fade up left"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-down-right",
+            "label": "fade down right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-down-left",
+            "label": "fade down left"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-left",
+            "label": "flip left"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-right",
+            "label": "flip right"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-up",
+            "label": "flip up"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-down",
+            "label": "flip down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in",
+            "label": "zoom in"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-up",
+            "label": "zoom in up"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-down",
+            "label": "zoom in down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-left",
+            "label": "zoom in left"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-right",
+            "label": "zoom in right"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out",
+            "label": "zoom out"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-up",
+            "label": "zoom out up"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-down",
+            "label": "zoom out down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-right",
+            "label": "zoom out right"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-left",
+            "label": "zoom out left"
+            }
+        ],
+        "default": "fade-up"
+    },
+    {
+        "type": "select",
+        "id": "title_animation",
+        "label": "All Titles Animation",
+        "options": [
+            {
+            "group": "FADE",
+            "value": "fade-up",
+            "label": "fade up"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-in",
+            "label": "fade in"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-right",
+            "label": "fade right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-left",
+            "label": "fade left"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-up-right",
+            "label": "fade up right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-up-left",
+            "label": "fade up left"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-down-right",
+            "label": "fade down right"
+            },
+            {
+            "group": "FADE",
+            "value": "fade-down-left",
+            "label": "fade down left"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-left",
+            "label": "flip left"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-right",
+            "label": "flip right"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-up",
+            "label": "flip up"
+            },
+            {
+            "group": "FLIP",
+            "value": "flip-down",
+            "label": "flip down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in",
+            "label": "zoom in"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-up",
+            "label": "zoom in up"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-down",
+            "label": "zoom in down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-left",
+            "label": "zoom in left"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-in-right",
+            "label": "zoom in right"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out",
+            "label": "zoom out"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-up",
+            "label": "zoom out up"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-down",
+            "label": "zoom out down"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-right",
+            "label": "zoom out right"
+            },
+            {
+            "group": "ZOOM",
+            "value": "zoom-out-left",
+            "label": "zoom out left"
+            }
+        ],
+        "default": "flip-down"
+      },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+    },
+    {
+        "type": "header",
+        "content": "Nutrition Section"
+    },
+    {
+        "type": "image_picker",
+        "id": "nutrition_image",
+        "label": "Nutrition Image"
+    },
+    {
+        "type": "text",
+        "id": "heading_1",
+        "label": "Heading 1"
+    },
+    {
+        "type": "text",
+        "id": "text_1",
+        "label": "Text 1"
+    },
+    {
+        "type": "text",
+        "id": "heading_2",
+        "label": "Heading 2"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Image 2"
+    },
+    {
+        "type": "header",
+        "content": "Membership Section"
+    },
+    {
+        "type": "text",
+        "id": "membership_title",
+        "label": "Membership Title"
+    },
+    {
+        "type": "header",
+        "content": "Monthly"
+    },
+    {
+        "type": "text",
+        "id": "tab_heading_1",
+        "label": "Tab Heading"
+    },
+    {
+        "type": "html",
+        "id": "monthly_title",
+        "label": "Title"
+    },
+    {
+        "type": "richtext",
+        "id": "monthly_content",
+        "label": "Content"
+    },
+    {
+        "type": "text",
+        "id": "monthly_button_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "monthly_button_link",
+        "label": "Button Link"
+    },
+    {
+        "type": "header",
+        "content": "Quarterly"
+    },
+    {
+        "type": "text",
+        "id": "tab_heading_2",
+        "label": "Tab Heading"
+    },
+    {
+        "type": "html",
+        "id": "quarterly_title",
+        "label": "Title"
+    },
+    {
+        "type": "richtext",
+        "id": "quarterly_content",
+        "label": "Content"
+    },
+    {
+        "type": "text",
+        "id": "quart_button_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "quart_button_link",
+        "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "membership",
+      "name": "Membership Monthly",
+      "settings": [
+      {
+          "type": "text",
+          "id": "title",
+          "label": "List Point"
+      }
+      ]
+    },
+    {
+        "type": "membership_quarterly",
+        "name": "Membership Quartely",
+        "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "List Point"
+        }
+        ]
+    },
+    {
+        "type": "featured_points",
+        "name": "Featured Points",
+        "settings": [
+        {
+            "type": "text",
+            "id": "featured_points",
+            "label": "Featured Points"
+        }
+        ]
     }
   ]
 }

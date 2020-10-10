@@ -1,7 +1,7 @@
 <div class="program-section">
     <div class="row no-gutters">
         <div class="text-section">
-            <div class="text-inner">
+            <div class="text-inner"> 
                 {% if section.settings.title != blank %}
                 <h1 data-aos="{{section.settings.title_animation}}" data-aos-duration="2000" class="section-title-2">
                     {{ section.settings.title }}
@@ -27,12 +27,15 @@
                             {% endif %}
                         {% endif %}
                         <h3 data-aos="{{block.settings.title_animation}}" data-aos-duration="2000">{{ block.settings.title }}</h3>
-                        <span class="weeks">
-                            {{ block.settings.weeks }}
-                        </span>
-                        <span class="shape-price">
-                            {{ block.settings.price }}
-                        </span>
+                        <div class="
+                        ">
+                            <span class="weeks">
+                                {{ block.settings.weeks }}
+                            </span>
+                            <span class="shape-price">
+                                {{ block.settings.price }}
+                            </span>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -66,8 +69,8 @@
           },
           {
           "group": "FADE",
-          "value": "fade-down",
-          "label": "fade down"
+          "value": "fade-in", 
+          "label": "fade in"
           },
           {
           "group": "FADE",
@@ -205,8 +208,8 @@
               },
               {
               "group": "FADE",
-              "value": "fade-down",
-              "label": "fade down"
+              "value": "fade-in",
+              "label": "fade in"
               },
               {
               "group": "FADE",
@@ -328,8 +331,8 @@
             },
             {
             "group": "FADE",
-            "value": "fade-down",
-            "label": "fade down"
+            "value": "fade-in",
+            "label": "fade in"
             },
             {
             "group": "FADE",

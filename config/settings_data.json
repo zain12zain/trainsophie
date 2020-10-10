@@ -61,7 +61,12 @@
           "message_text": "Announce something here",
           "message_link": "",
           "color_bg": "#3a3a3a",
-          "color_text": "#ffffff"
+          "color_text": "#ffffff",
+          "facebook_link": "#",
+          "insta_link": "#",
+          "youtube_link": "#",
+          "link_list": "footer-3",
+          "copyright_text": "© 2020, Train With Soph"
         }
       },
       "footer": {
@@ -116,9 +121,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_3.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "title": "Shred Unwanted Body Fat",
-              "title_animation": "fade-down-left",
+              "title_animation": "fade-in",
               "weeks": "6 Weeks",
               "price": "$79.99",
               "link": "#"
@@ -128,9 +133,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_4.png",
-              "image_animation": "fade-up",
+              "image_animation": "fade-in",
               "title": "CREATE YOUR DREAM SHAPE",
-              "title_animation": "flip-down",
+              "title_animation": "fade-in",
               "weeks": "6 Weeks",
               "price": "$199.99",
               "link": "#"
@@ -140,11 +145,11 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_6.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "title": "BOOTY & CORE PROGRAM",
-              "title_animation": "zoom-in",
+              "title_animation": "fade-in",
               "weeks": "10 Weeks",
-              "price": "159.99",
+              "price": "$159.99",
               "link": "#"
             }
           },
@@ -152,9 +157,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_4.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "title": "BOOTY & CORE PROGRAM",
-              "title_animation": "zoom-in",
+              "title_animation": "fade-in",
               "weeks": "8 Weeks",
               "price": "$80",
               "link": "#"
@@ -164,9 +169,9 @@
             "type": "shapes",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_6.png",
-              "image_animation": "zoom-out",
+              "image_animation": "fade-in",
               "title": "Shred Unwanted Body Fat",
-              "title_animation": "flip-down",
+              "title_animation": "fade-in",
               "weeks": "5 weeks",
               "price": "$120",
               "link": "#"
@@ -182,7 +187,7 @@
         ],
         "settings": {
           "title": "Programs",
-          "title_animation": "fade-up",
+          "title_animation": "fade-in",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut a magna. Nam bibendum suscipit nunc, quis euismod enim pulvinar quis.",
           "bg_color": "#ebd0c2"
         }
@@ -192,13 +197,13 @@
         "settings": {
           "bg_image": "shopify:\/\/shop_images\/Backround_element_3.png",
           "image": "shopify:\/\/shop_images\/image3_1.png",
-          "image_animation": "flip-down",
-          "title_animation": "flip-down",
-          "button_animation": "flip-down",
+          "image_animation": "fade-in",
+          "title_animation": "fade-in",
+          "button_animation": "fade-in",
           "title": "WHAT IS TRAIN WITH SOPH?",
           "text": "<p>I found happiness through fitness, and created TWS as a platform to positively impact thousands of lives around the world. My goal is to provide all women a supportive environment to build a body and life that they can be proud of!<\/p>\n<p>Like so many, the original goal was simple, I wanted to change my body, build muscle and lose fat.<\/p>\n<p>There were a lot of ups and downs (there still are!), but I created a body and lifestyle that I enjoy and love. I want to share my learnings with you, and help you on your journey too.<\/p>",
           "button_text": "Know More",
-          "button_url": "#"
+          "button_url": "shopify:\/\/pages\/about-me"
         }
       },
       "1598033267610": {
@@ -208,49 +213,49 @@
             "type": "training_step",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_7.png",
-              "step": "Mindset Training"
+              "step": "<p>Mindset<br>Training<\/p>"
             }
           },
           "1598033730705": {
             "type": "training_step",
             "settings": {
               "image": "shopify:\/\/shop_images\/image.png",
-              "step": "Educational content"
+              "step": "<p>Educational<br>content<\/p>"
             }
           },
           "1598033738712": {
             "type": "training_step",
             "settings": {
               "image": "shopify:\/\/shop_images\/image1_7.png",
-              "step": "4 weekly program update"
+              "step": "<p>4 weekly program<br>update<\/p>"
             }
           },
           "1598033750665": {
             "type": "training_step",
             "settings": {
               "image": "shopify:\/\/shop_images\/image2_7.png",
-              "step": "Custom training"
+              "step": "<p>Custom<br>training<\/p>"
             }
           },
           "1598033769433": {
             "type": "training_step",
             "settings": {
               "image": "shopify:\/\/shop_images\/image3_7.png",
-              "step": "Custom nutrition"
+              "step": "<p>Custom<br>|nutrition<\/p>"
             }
           },
           "1598033785168": {
             "type": "training_step",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_5_7.png",
-              "step": "24\/7 support"
+              "step": "<p>24\/7<br>support<\/p>"
             }
           },
           "1598033798868": {
             "type": "training_step",
             "settings": {
               "image": "shopify:\/\/shop_images\/image6_7.png",
-              "step": "Members only app"
+              "step": "<p>Members only<br>app<\/p>"
             }
           }
         },
@@ -267,13 +272,13 @@
           "bg_image": "shopify:\/\/shop_images\/Backround_element_1.png",
           "drop_image": "shopify:\/\/shop_images\/Backround_element_2.png",
           "image": "shopify:\/\/shop_images\/image_1.png",
-          "image_animation": "flip-down",
+          "image_animation": "fade-in",
           "title": "WHY TWS?",
-          "title_animation": "flip-down",
+          "title_animation": "fade-in",
           "text": "<p>The TWS Platform is designed to provide EVERYTHING you need to make your fitness journey as enjoyable one. I've made sure to give you a customised, Personal experience that works off your lifestyle and what you need from a program.<\/p>\n<p>Stay accountable,track your progress and join a community of like-minded women on a journey similar to yours!Know that my team and i will be with you, every step of the way.<\/p>",
           "button_text": "Find your program",
-          "button_url": "#",
-          "button_animation": "flip-down"
+          "button_url": "shopify:\/\/pages\/coaching",
+          "button_animation": "fade-in"
         }
       },
       "1598034822654": {
@@ -283,9 +288,9 @@
             "type": "model",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_5.png",
-              "image_animation": "fade-up",
+              "image_animation": "fade-in",
               "title": "Maria Dee",
-              "title_animation": "fade-left",
+              "title_animation": "fade-in",
               "sub_title": "Model",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut a magna. Nam bibendum suscipit nunc, quis euismod enim pulvinar quis.<\/p>",
               "link": "#"
@@ -295,9 +300,9 @@
             "type": "model",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_5.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "title": "Maria Dee",
-              "title_animation": "fade-right",
+              "title_animation": "fade-in",
               "sub_title": "Model",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut a magna. Nam bibendum suscipit nunc, quis euismod enim pulvinar quis.<\/p>",
               "link": ""
@@ -317,7 +322,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/slide1.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "link_text": "Read story",
               "link": "#"
             }
@@ -326,7 +331,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "link_text": "Read story",
               "link": "#"
             }
@@ -335,7 +340,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/GABRIELA_RIOINEGRO_FRONT_-_wk_1_12_2x_5fec39c7-9ae3-49af-b376-8c8a8e0b8459.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "link_text": "Read story",
               "link": "#"
             }
@@ -344,7 +349,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "link_text": "Read story",
               "link": "#"
             }
@@ -353,7 +358,7 @@
             "type": "transformation",
             "settings": {
               "image": "shopify:\/\/shop_images\/GABRIELA_RIOINEGRO_FRONT_-_wk_1_12_2x_5fec39c7-9ae3-49af-b376-8c8a8e0b8459.png",
-              "image_animation": "flip-down",
+              "image_animation": "fade-in",
               "link_text": "Read story",
               "link": "#"
             }
@@ -368,7 +373,7 @@
         ],
         "settings": {
           "title": "Transformations",
-          "title_animation": "flip-down",
+          "title_animation": "fade-in",
           "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut a magna. Nam bibendum suscipit nunc, quis euismod enim pulvinar quis.<\/p>"
         }
       },
@@ -378,9 +383,9 @@
           "image": "shopify:\/\/shop_images\/banner_1.png",
           "video_id": "QV5EXOFcdrQ",
           "title": "Capable of More",
-          "title_animation": "flip-down",
+          "title_animation": "fade-in",
           "button_text": "Find Your Program",
-          "link": "#",
+          "link": "shopify:\/\/pages\/coaching",
           "featured_text": "Train With Soph"
         }
       },
@@ -394,8 +399,8 @@
           "show_vendor": false,
           "sort_enable": true,
           "tags_enable": true,
-          "title_animation": "fade-up",
-          "image_animation": "fade-up"
+          "title_animation": "fade-in",
+          "image_animation": "fade-in"
         }
       },
       "product-template": {
@@ -420,57 +425,9 @@
       },
       "cut-tone-transformation": {
         "type": "cut-tone-transformation",
-        "blocks": {
-          "1598738049660": {
-            "type": "transformation",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
-              "link_text": "READ STORY",
-              "link": "#"
-            }
-          },
-          "1598738070259": {
-            "type": "transformation",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/GABRIELA_RIOINEGRO_FRONT_-_wk_1_12_2x_745366d0-0db6-430b-9606-015fed305ef0.png",
-              "link_text": "READ STORY",
-              "link": "#"
-            }
-          },
-          "1598738077123": {
-            "type": "transformation",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/image_7_cc881cc9-063e-4259-9204-6a6705e6c449.png",
-              "link_text": "READ STORY",
-              "link": "#"
-            }
-          },
-          "1598738086341": {
-            "type": "transformation",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/slide1.png",
-              "link_text": "READ STORY",
-              "link": "#"
-            }
-          },
-          "1598738097516": {
-            "type": "transformation",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
-              "link_text": "READ STORY",
-              "link": "#"
-            }
-          }
-        },
-        "block_order": [
-          "1598738049660",
-          "1598738070259",
-          "1598738077123",
-          "1598738086341",
-          "1598738097516"
-        ],
         "settings": {
           "title": "Transformations",
+          "title_animation": "fade-in",
           "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper<\/p>"
         }
       },
@@ -482,8 +439,8 @@
           "blog_show_date": true,
           "bg_image_1": "shopify:\/\/shop_images\/Blog-1.png",
           "bg_image_2": "shopify:\/\/shop_images\/Blog-2_1.png",
-          "title_animation": "fade-up",
-          "image_animation": "fade-up"
+          "title_animation": "fade-in",
+          "image_animation": "fade-in"
         }
       },
       "all-blog-template": {
@@ -493,8 +450,8 @@
           "blog_show_date": true,
           "bg_image_1": "shopify:\/\/shop_images\/Blog-1.png",
           "bg_image_2": "shopify:\/\/shop_images\/Blog-2_1.png",
-          "title_animation": "fade-down",
-          "image_animation": "fade-up"
+          "title_animation": "fade-in",
+          "image_animation": "fade-in"
         }
       },
       "about-me-template": {
@@ -502,7 +459,484 @@
         "settings": {
           "bg_image_1": "shopify:\/\/shop_images\/About-1_1.png",
           "bg_image_2": "shopify:\/\/shop_images\/About-2_1.png",
-          "bg_image_3": "shopify:\/\/shop_images\/About-3_1.png"
+          "bg_image_3": "shopify:\/\/shop_images\/Group_225.png",
+          "bg_image_4": "shopify:\/\/shop_images\/Path_689.png",
+          "image": "shopify:\/\/shop_images\/Soph_01_1.png",
+          "desktop_image": "",
+          "image_animation": "flip-down",
+          "title": "HI, I’M SOPH",
+          "title_animation": "flip-down",
+          "text": "<p>I can&rsquo;t think of a way to write this without sounding lame.. but hear me out!<\/p>\n<p>a coach, my philosophy for living a healthy life comprises of three key things: Training, Nutrition &amp; Mindset.<\/p>\n<p>This is how I live my life - I train hard, I eat to fuel my sessions (yes this involves chocolate) and I work equally as hard to train my mind.<\/p>\n<p>I wasn&rsquo;t always fit, strong and active. I gained a serious amount of weight in 2014 and want you to know that there&rsquo;s nothing that makes me special - anyone and everyone can achieve an amazing physique. You just need the right tools - and I&rsquo;ve got you covered with your training and nutrition programs, mindset coaching and more in my TWS Coaching Platform.<\/p>",
+          "button_text": "FIND YOUR PROGRAM",
+          "button_link": "#",
+          "image2": "shopify:\/\/shop_images\/Soph_02_1.png",
+          "title2": "HOW DID I BEGIN?",
+          "text2": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem metus, tempor at sollicitudin ut, pretium quis erat. Curabitur sed vulputate lectus, ac faucibus ante. Ut aliquam lacinia est sed pharetra. Maecenas dignissim justo et turpis eleifend, ut placerat tellus aliquam. Quisque eu imperdiet lorem. Quisque ac viverra lectus, eget dapibus nulla. Duis posuere nulla tortor, eget gravida ex finibus eu. Ut pharetra ac nisl id gravida.<\/p>\n<p>Integer commodo lectus nec ligula condimentum ultrices. Cras feugiat nunc ac efficitur tincidunt. Aliquam ex ex, viverra vitae varius ut, interdum ut massa. Donec eu tincidunt eros. Etiam laoreet sodales felis, sit amet aliquet velit commodo nec. Quisque imperdiet, leo vitae gravida interdum, tellus mauris vehicula urna, et eleifend dolor nibh a sapien.<\/p>"
+        }
+      },
+      "coaching-template": {
+        "type": "coaching-template",
+        "blocks": {
+          "1599345454820": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "Do you wish you were leaner, fitter, stronger, and more confident?"
+            }
+          },
+          "1599345471991": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "Are you ready to make a change in your life but have NO idea where or how to start?"
+            }
+          },
+          "1599345533520": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "Are you sick of not fitting into your clothes properly? Or feeling down when you see photos of yourself?"
+            }
+          },
+          "1599345571193": {
+            "type": "coaching_content",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Soph_L_9873_2x_1.png",
+              "image_position": "right",
+              "image_animation": "fade-in",
+              "title": "CUT & TONE",
+              "title_animation": "fade-in",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non",
+              "button_text": "Learn More",
+              "button_link": "shopify:\/\/pages\/cut-tone",
+              "show_background": false
+            }
+          },
+          "1599345638030": {
+            "type": "coaching_content",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC_3x_1.png",
+              "image_position": "left",
+              "image_animation": "fade-in",
+              "title": "BUILD & SHAPE",
+              "title_animation": "fade-in",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non",
+              "button_text": "Learn More",
+              "button_link": "#",
+              "show_background": true
+            }
+          },
+          "1599345683846": {
+            "type": "coaching_content",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Soph_2x_1.png",
+              "image_position": "right",
+              "image_animation": "fade-in",
+              "title": "GROW YOUR GLUTES",
+              "title_animation": "fade-in",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non",
+              "button_text": "Learn More",
+              "button_link": "#",
+              "show_background": false
+            }
+          },
+          "1599345772023": {
+            "type": "coaching_content",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/387_2x_1.png",
+              "image_position": "left",
+              "image_animation": "fade-in",
+              "title": "TWS AT HOME",
+              "title_animation": "fade-in",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non",
+              "button_text": "Learn More",
+              "button_link": "#",
+              "show_background": true
+            }
+          },
+          "1599348921752": {
+            "type": "shapes",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC_3x_1_224bef44-700d-44c7-9489-e5354f771ed1.png",
+              "image_animation": "fade-in",
+              "title": "create your own shape",
+              "title_animation": "fade-in",
+              "weeks": "6 weeks",
+              "price": "$580",
+              "link": "#"
+            }
+          },
+          "1599348994804": {
+            "type": "shapes",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC_3x_1_224bef44-700d-44c7-9489-e5354f771ed1.png",
+              "image_animation": "fade-in",
+              "title": "create your own shape",
+              "title_animation": "fade-in",
+              "weeks": "8 weeks",
+              "price": "$600",
+              "link": "#"
+            }
+          },
+          "1599349030105": {
+            "type": "shapes",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC_3x_1_224bef44-700d-44c7-9489-e5354f771ed1.png",
+              "image_animation": "fade-in",
+              "title": "create your own shape",
+              "title_animation": "fade-in",
+              "weeks": "7 weeks",
+              "price": "$499",
+              "link": "#"
+            }
+          },
+          "1599349052319": {
+            "type": "shapes",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC_3x_1_224bef44-700d-44c7-9489-e5354f771ed1.png",
+              "image_animation": "fade-in",
+              "title": "create your own shape",
+              "title_animation": "fade-in",
+              "weeks": "9 weeks",
+              "price": "$450",
+              "link": "#"
+            }
+          },
+          "1599349075110": {
+            "type": "shapes",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC_3x_1_224bef44-700d-44c7-9489-e5354f771ed1.png",
+              "image_animation": "fade-in",
+              "title": "create your own shape",
+              "title_animation": "fade-in",
+              "weeks": "4 weeks",
+              "price": "$350",
+              "link": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1599345454820",
+          "1599345471991",
+          "1599345533520",
+          "1599345571193",
+          "1599345638030",
+          "1599345683846",
+          "1599345772023",
+          "1599348921752",
+          "1599348994804",
+          "1599349030105",
+          "1599349052319",
+          "1599349075110"
+        ],
+        "settings": {
+          "bg_image": "shopify:\/\/shop_images\/Group_231.png",
+          "bg_image_2": "shopify:\/\/shop_images\/Group_228.png",
+          "image_animation": "fade-in",
+          "title_animation": "fade-in",
+          "image": "shopify:\/\/shop_images\/Soph_L_0167_2x_1.png",
+          "desktop_image": "shopify:\/\/shop_images\/ed6ec972-0a60-40eb-bc5b-857784d2597b.jpg",
+          "title": "COACHING",
+          "featured_heading": "WHY JOIN TRAIN WITH SOPH??",
+          "promo_text": "WELL GIRL, YOU’VE COME TO THE RIGHT PLACE & I’VE GOT YOU!",
+          "program_s_title": "PROGRAMS",
+          "program_s_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut",
+          "bg_image_3": "shopify:\/\/shop_images\/Coaching-1.png",
+          "bg_image_4": "shopify:\/\/shop_images\/Blog-2_1.png",
+          "slider_title": "FIND MY PROGRAM",
+          "slider_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl neque, viverra id tincidunt nec, semper vitae tellus. Vivamus eu leo nec lacus ullamcorper molestie ut"
+        }
+      },
+      "cut-ton-template": {
+        "type": "cut-ton-template",
+        "blocks": {
+          "1599355415743": {
+            "type": "membership",
+            "settings": {
+              "title": "Choose 4 or 5 training days"
+            }
+          },
+          "1599355436303": {
+            "type": "membership",
+            "settings": {
+              "title": "4 week mesocycles (training blocks) updated based on your progress"
+            }
+          },
+          "1599355461626": {
+            "type": "membership",
+            "settings": {
+              "title": "Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards"
+            }
+          },
+          "1599355471712": {
+            "type": "membership",
+            "settings": {
+              "title": "Progressively increasing volume and reps mesocycle to mesocycle"
+            }
+          },
+          "1599355477150": {
+            "type": "membership",
+            "settings": {
+              "title": "Progressively increasing volume and reps mesocycle to mesocycle"
+            }
+          },
+          "1599355484199": {
+            "type": "membership",
+            "settings": {
+              "title": "Cardio programmed from mesocycle 2 onwards"
+            }
+          },
+          "1599355491116": {
+            "type": "membership",
+            "settings": {
+              "title": "Get strong and build lean muscle"
+            }
+          },
+          "1599355493880": {
+            "type": "membership",
+            "settings": {
+              "title": "This program is gym based only"
+            }
+          },
+          "1599355503631": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "Choose 4 or 5 training days"
+            }
+          },
+          "1599355514256": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "4 week mesocycles (training blocks) updated based on your progress"
+            }
+          },
+          "1599355523161": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards"
+            }
+          },
+          "1599355528875": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "Progressively increasing volume and reps mesocycle to mesocycle"
+            }
+          },
+          "1599355534567": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "Progressively increasing volume and reps mesocycle to mesocycle"
+            }
+          },
+          "1599355540624": {
+            "type": "featured_points",
+            "settings": {
+              "featured_points": "Cardio programmed from mesocycle 2 onwards"
+            }
+          },
+          "1599355955028": {
+            "type": "membership_quarterly",
+            "settings": {
+              "title": "Choose 4 or 5 training days"
+            }
+          },
+          "1599355977484": {
+            "type": "membership_quarterly",
+            "settings": {
+              "title": "4 week mesocycles (training blocks) updated based on your progress"
+            }
+          },
+          "1599355985823": {
+            "type": "membership_quarterly",
+            "settings": {
+              "title": "Start with full body training for mesocycle 1 and 2 then split body parts from mesocycle 3 onwards"
+            }
+          },
+          "1599355991775": {
+            "type": "membership_quarterly",
+            "settings": {
+              "title": "Progressively increasing volume and reps mesocycle to mesocycle"
+            }
+          },
+          "1599355996732": {
+            "type": "membership_quarterly",
+            "settings": {
+              "title": "Progressively increasing volume and reps mesocycle to mesocycle"
+            }
+          },
+          "1599356002671": {
+            "type": "membership_quarterly",
+            "settings": {
+              "title": "Cardio programmed from mesocycle 2 onwards"
+            }
+          }
+        },
+        "block_order": [
+          "1599355415743",
+          "1599355436303",
+          "1599355461626",
+          "1599355471712",
+          "1599355477150",
+          "1599355484199",
+          "1599355491116",
+          "1599355493880",
+          "1599355503631",
+          "1599355514256",
+          "1599355523161",
+          "1599355528875",
+          "1599355534567",
+          "1599355540624",
+          "1599355955028",
+          "1599355977484",
+          "1599355985823",
+          "1599355991775",
+          "1599355996732",
+          "1599356002671"
+        ],
+        "settings": {
+          "list_animation": "fade-in",
+          "image_animation": "fade-in",
+          "all_image_animation": "fade-in",
+          "title_animation": "fade-in",
+          "image": "shopify:\/\/shop_images\/Soph-2x_1.png",
+          "title": "CUT & TONE",
+          "nutrition_image": "shopify:\/\/shop_images\/welcome-img_1.png",
+          "heading_1": "CUT & TONE",
+          "text_1": "Cut & Tone nutrition goal is for those wanting to lose fat and tone up! You'll receive a 7 day meal plan with an optional 8th day refeed. Choose this goal alongside any training program - YES you can build muscle whilst in a calorie deficit, however it’s easier from maintenance or surplus calories.",
+          "heading_2": "Nutrition Options",
+          "image_2": "shopify:\/\/shop_images\/ella-olsson-2x_1.png",
+          "membership_title": "MEMBERSHIP PLAN",
+          "tab_heading_1": "Monthly",
+          "monthly_title": "<span class=\"dollar-s\">$<\/span><span class=\"fifty-2\"> 52<\/span> <span class=\"dollar-month\">\/month<\/span>",
+          "monthly_content": "",
+          "monthly_button_text": "Transform Yourself",
+          "monthly_button_link": "#",
+          "tab_heading_2": "Quarterly",
+          "quarterly_title": "<span class=\"dollar-s\">$<\/span><span class=\"fifty-2\"> 25<\/span> <span class=\"dollar-month\">\/month<\/span>",
+          "quarterly_content": "",
+          "quart_button_text": "Lets Transform",
+          "quart_button_link": "#"
+        }
+      },
+      "calories-template": {
+        "type": "calories-template",
+        "settings": {
+          "bg_image_1": "shopify:\/\/shop_images\/Calorie-calculator.png",
+          "image": "shopify:\/\/shop_images\/pexels-trang-doan-793785_2x_1.png",
+          "desktop_image": "",
+          "image_animation": "fade-in",
+          "title": "CALORIE CALCULATOR",
+          "title_animation": "fade-in",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non mattis maximus, diam velit posuere massa, ut posuere velit neque a nulla."
+        }
+      },
+      "testimonials-template": {
+        "type": "testimonials-template",
+        "blocks": {
+          "1599693773075": {
+            "type": "testimonial",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
+              "image_animation": "flip-down",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non mattis maximus, diam velit posuere massa, ut posuere velit neque a nulla.",
+              "title": "Grace Garey",
+              "title_animation": "flip-down",
+              "text_2": "Cofounder"
+            }
+          },
+          "1599693839691": {
+            "type": "testimonial",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
+              "image_animation": "flip-down",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non mattis maximus, diam velit posuere massa, ut posuere velit neque a nulla.",
+              "title": "Grace Garey",
+              "title_animation": "flip-down",
+              "text_2": "Cofounder"
+            }
+          },
+          "1599693873604": {
+            "type": "testimonial",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BAILEY_THORNLEY_BACK_-_wk_1_12_2x_1fd664d8-ada5-4a21-8223-9abd9c9cb5f9.png",
+              "image_animation": "flip-down",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue, diam non mattis maximus, diam velit posuere massa, ut posuere velit neque a nulla.",
+              "title": "Grace Garey",
+              "title_animation": "flip-down",
+              "text_2": "Cofounder"
+            }
+          }
+        },
+        "block_order": [
+          "1599693773075",
+          "1599693839691",
+          "1599693873604"
+        ],
+        "settings": {
+          "bg_image": "shopify:\/\/shop_images\/Calorie-calculator.png",
+          "bg_image_2": "shopify:\/\/shop_images\/Blog-2_1.png",
+          "title": "TESTIMONIALS",
+          "title_animation": "flip-down"
+        }
+      },
+      "1600840827239": {
+        "type": "text-with-image-left",
+        "disabled": true,
+        "settings": {
+          "bg_image": "shopify:\/\/shop_images\/Group_231.png",
+          "image": "shopify:\/\/shop_images\/387_2x_1.png",
+          "image_animation": "fade-in",
+          "title_animation": "fade-in",
+          "button_animation": "fade-in",
+          "title": "How it works",
+          "text": "<p><strong>1.<\/strong> Pick your membership option + make your payment<\/p>\n<p><\/p>\n<p><strong>2.<\/strong> Enter your informationChoose your training goal<\/p>\n<p><\/p>\n<p><strong>3.<\/strong> Choose your nutrition goal<\/p>\n<p><\/p>\n<p><strong>4.<\/strong> Your program will then be designed and sent to you within 24-48 hours<\/p>",
+          "button_text": "Get Started",
+          "button_url": "shopify:\/\/pages\/coaching"
+        }
+      },
+      "1600988170528": {
+        "type": "how-it-work-section",
+        "blocks": {
+          "1600996361946": {
+            "type": "how_work_point",
+            "settings": {
+              "text": "<p>Change your<br>training goal&nbsp;<\/p>"
+            }
+          },
+          "1600996408824": {
+            "type": "how_work_point",
+            "settings": {
+              "text": "<p>Enter your<\/p>\n<p>information<\/p>"
+            }
+          },
+          "1600996434491": {
+            "type": "how_work_point",
+            "settings": {
+              "text": "<p>Choose your<br>nutrition goal<\/p>"
+            }
+          },
+          "1600996458698": {
+            "type": "how_work_point",
+            "settings": {
+              "text": "<p>Enter your<\/p>\n<p>information<\/p>"
+            }
+          },
+          "1600996481129": {
+            "type": "how_work_point",
+            "settings": {
+              "text": "<p>Choose your<br>nutrition goal<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1600996361946",
+          "1600996408824",
+          "1600996434491",
+          "1600996458698",
+          "1600996481129"
+        ],
+        "settings": {
+          "title": "HOW IT WORKS",
+          "title_animation": "fade-in",
+          "button_text": "Get Started",
+          "button_url": "#"
         }
       }
     },
@@ -511,6 +945,8 @@
       "1598034822654",
       "1598032771395",
       "1598033267610",
+      "1600840827239",
+      "1600988170528",
       "1598026655043",
       "1598036385622"
     ]

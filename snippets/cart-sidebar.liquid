@@ -2,28 +2,29 @@
 <div class="cart-sidebar hide">
 <div class="cart-sidebar-container">
 <div class="cart-sidebar--header">
-   <strong>My Cart</strong>
-   <a href="javascript:void(0);">Close</a>
+   <strong>Shopping Cart</strong>
+   <a href="javascript:void(0);"><i class="fa fa-close"></i></a>
 </div>
 </div>
 <div class="cart-sidebar--items-wrpaper">
 {% if cart.items.size > 0 %}
 {% for item in cart.items %}
 <div class="cart-sidebar-item">
-      <div class="row align-items-center">
-         <div class="col-15">
-            {{ item.image | img_url: '100x' | img_tag: '','img-fluid'}}
+      <div class="row align-items-center no-gutters">
+         <div class="col-18 cart-p-img">
+            {{ item.image | img_url: '200x' | img_tag: '','img-fluid'}}
          </div>
-         <div class="col-45 h-100">
+         <div class="col-42 h-100 pl-2">
             <div class="sidebar-cart--product-info">
                <div class="row">
                   <div class="col-60">
-                        <strong>{{ item.product.title }}
-                           <span class='booster-cart-item-success-notes' data-key='{{item.key}}'></span><span class='booster-cart-item-upsell-notes' data-key='{{item.key}}'></span></strong>
+                        <strong class="cart-product-title">{{ item.product.title }}
+                           <!-- <span class='booster-cart-item-success-notes d-none' data-key='{{item.key}}'></span><span class='booster-cart-item-upsell-notes' data-key='{{item.key}}'></span> -->
+                        </strong>
                   </div>
                   <div class="col-60">
                      <div class="row align-items-end">
-                        <div class="col-60">
+                        <div class="col-60 mb-2">
                            <span>{{ item.price | money_with_currency }}</span>
                         </div>
                         <div class="col-30">
@@ -49,7 +50,7 @@
 <div class="cart-sidebar--footer-subtotal">
    <div class="row">
       <div class="col-30">
-         <strong>Subtotal</strong>
+         <strong>TOTAL</strong>
       </div>
       <div class="col-30 text-right">
          <strong class="cart-subtotals"><span class="wh-original-cart-total"><span class='wh-original-price'><span class='ak-upsell-original-price'>{{ cart.total_price | money_with_currency }}</span><span class='ak-upsell-cart-total'></span></span></span><span class="wh-cart-total"></span><div class="additional-notes"><span class="wh-minimums-note"></span><span class="wh-extra-note"></span></div></strong>
@@ -58,7 +59,7 @@
    <div class="row">
          <div class="col-60 px-0 product-form__item product-form__item--submit">
             <div class="button">
-              <div class="add" style="background:white;">
+              <div class="add">
                 <button type="button" onclick="window.location='/cart'" name="add" class="btn minicart-cart-btn product-form__cart-submit"><span>Cart</span></button>
                 <button type="button" name="add" class="btn product-form__cart-submit" onclick="window.location='/checkout'"><span>Checkout</span></button>
                </div>

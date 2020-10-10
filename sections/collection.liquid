@@ -5,7 +5,7 @@
     </div>
   {% endif %}
 
-  {%- assign collection = collections[section.settings.collection] -%}
+  {%- assign collection = collections[section.settings.collection_text] -%}
 
   {% case section.settings.grid %}
     {% when 2 %}
@@ -131,28 +131,9 @@
       }
     },
     {
-      "id": "collection",
       "type": "collection",
-      "label": {
-        "da": "Kollektion",
-        "de": "Kategorie",
-        "en": "Collection",
-        "es": "Colección",
-        "fi": "Kokoelma",
-        "fr": "Collection",
-        "hi": "कलेक्शन",
-        "it": "Collezione",
-        "ja": "コレクション",
-        "ko": "컬렉션",
-        "nb": "Samling",
-        "nl": "Collectie",
-        "pt-BR": "Coleção",
-        "pt-PT": "Coleção",
-        "sv": "Produktserie",
-        "th": "คอลเลกชัน",
-        "zh-CN": "收藏",
-        "zh-TW": "商品系列"
-      }
+      "id": "collection_text",
+      "label": "Collection"
     },
     {
       "type": "range",
